@@ -1,0 +1,907 @@
+{
+  "name": "Index List",
+  "description": "",
+  "renders": [
+    "application/json",
+    "text/html"
+  ],
+  "parses": [
+    "application/json",
+    "application/x-www-form-urlencoded",
+    "multipart/form-data"
+  ],
+  "actions": {
+    "POST": {
+      "id": {
+        "type": "integer",
+        "required": false,
+        "read_only": true,
+        "label": "ID"
+      },
+      "index_versions": {
+        "type": "field",
+        "required": true,
+        "read_only": false,
+        "label": "Index versions",
+        "child": {
+          "type": "nested object",
+          "required": true,
+          "read_only": false,
+          "children": {}
+        }
+      },
+      "asset_class_orientation": {
+        "type": "choice",
+        "required": false,
+        "read_only": false,
+        "label": "Asset class orientation",
+        "choices": [
+          {
+            "display_name": "Equity",
+            "value": "0"
+          },
+          {
+            "display_name": "Fixed Income",
+            "value": "1"
+          },
+          {
+            "display_name": "Diverse",
+            "value": "2"
+          }
+        ]
+      },
+      "sector_orientation": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Sector orientation",
+        "max_length": 100
+      },
+      "region_development_orientation": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Region development orientation",
+        "max_length": 100
+      },
+      "region_orientation": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Region orientation",
+        "max_length": 100
+      },
+      "country_orientation": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Country orientation",
+        "max_length": 100
+      },
+      "weighting_scheme": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Weighting scheme",
+        "max_length": 100
+      },
+      "selection_scheme": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Selection scheme",
+        "max_length": 100
+      },
+      "bond_sector": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Bond sector",
+        "max_length": 100
+      },
+      "bond_credit_quality": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Bond credit quality",
+        "max_length": 100
+      },
+      "stock_sector": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Stock sector",
+        "max_length": 100
+      },
+      "stock_style_orientation": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Stock style orientation",
+        "max_length": 100
+      },
+      "stock_size_orientation": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Stock size orientation",
+        "max_length": 100
+      },
+      "alternative_sector": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Alternative sector",
+        "max_length": 100
+      },
+      "ms_id": {
+        "type": "string",
+        "required": true,
+        "read_only": false,
+        "label": "Ms id",
+        "max_length": 20
+      },
+      "name": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Name",
+        "max_length": 100
+      },
+      "domicile": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Domicile",
+        "max_length": 5
+      },
+      "inception_date": {
+        "type": "date",
+        "required": false,
+        "read_only": false,
+        "label": "Inception date"
+      },
+      "wind_up_date": {
+        "type": "date",
+        "required": false,
+        "read_only": false,
+        "label": "Wind up date"
+      },
+      "description": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Description"
+      },
+      "base_currency": {
+        "type": "choice",
+        "required": false,
+        "read_only": false,
+        "label": "Base currency",
+        "choices": [
+          {
+            "display_name": "AED",
+            "value": "AED"
+          },
+          {
+            "display_name": "AFN",
+            "value": "AFN"
+          },
+          {
+            "display_name": "ALL",
+            "value": "ALL"
+          },
+          {
+            "display_name": "AMD",
+            "value": "AMD"
+          },
+          {
+            "display_name": "ANG",
+            "value": "ANG"
+          },
+          {
+            "display_name": "AOA",
+            "value": "AOA"
+          },
+          {
+            "display_name": "ARS",
+            "value": "ARS"
+          },
+          {
+            "display_name": "AUD",
+            "value": "AUD"
+          },
+          {
+            "display_name": "AWG",
+            "value": "AWG"
+          },
+          {
+            "display_name": "AZN",
+            "value": "AZN"
+          },
+          {
+            "display_name": "BAM",
+            "value": "BAM"
+          },
+          {
+            "display_name": "BBD",
+            "value": "BBD"
+          },
+          {
+            "display_name": "BDT",
+            "value": "BDT"
+          },
+          {
+            "display_name": "BGN",
+            "value": "BGN"
+          },
+          {
+            "display_name": "BHD",
+            "value": "BHD"
+          },
+          {
+            "display_name": "BIF",
+            "value": "BIF"
+          },
+          {
+            "display_name": "BMD",
+            "value": "BMD"
+          },
+          {
+            "display_name": "BND",
+            "value": "BND"
+          },
+          {
+            "display_name": "BRL",
+            "value": "BRL"
+          },
+          {
+            "display_name": "BSD",
+            "value": "BSD"
+          },
+          {
+            "display_name": "BTN",
+            "value": "BTN"
+          },
+          {
+            "display_name": "BWP",
+            "value": "BWP"
+          },
+          {
+            "display_name": "BYR",
+            "value": "BYR"
+          },
+          {
+            "display_name": "BZD",
+            "value": "BZD"
+          },
+          {
+            "display_name": "CAD",
+            "value": "CAD"
+          },
+          {
+            "display_name": "CDF",
+            "value": "CDF"
+          },
+          {
+            "display_name": "CHF",
+            "value": "CHF"
+          },
+          {
+            "display_name": "CLP",
+            "value": "CLP"
+          },
+          {
+            "display_name": "CNY",
+            "value": "CNY"
+          },
+          {
+            "display_name": "COP",
+            "value": "COP"
+          },
+          {
+            "display_name": "CRC",
+            "value": "CRC"
+          },
+          {
+            "display_name": "CUC",
+            "value": "CUC"
+          },
+          {
+            "display_name": "CUP",
+            "value": "CUP"
+          },
+          {
+            "display_name": "CVE",
+            "value": "CVE"
+          },
+          {
+            "display_name": "CZK",
+            "value": "CZK"
+          },
+          {
+            "display_name": "DJF",
+            "value": "DJF"
+          },
+          {
+            "display_name": "DKK",
+            "value": "DKK"
+          },
+          {
+            "display_name": "DOP",
+            "value": "DOP"
+          },
+          {
+            "display_name": "DZD",
+            "value": "DZD"
+          },
+          {
+            "display_name": "EGP",
+            "value": "EGP"
+          },
+          {
+            "display_name": "ERN",
+            "value": "ERN"
+          },
+          {
+            "display_name": "ETB",
+            "value": "ETB"
+          },
+          {
+            "display_name": "EUR",
+            "value": "EUR"
+          },
+          {
+            "display_name": "FJD",
+            "value": "FJD"
+          },
+          {
+            "display_name": "FKP",
+            "value": "FKP"
+          },
+          {
+            "display_name": "GBP",
+            "value": "GBP"
+          },
+          {
+            "display_name": "GEL",
+            "value": "GEL"
+          },
+          {
+            "display_name": "GHS",
+            "value": "GHS"
+          },
+          {
+            "display_name": "GIP",
+            "value": "GIP"
+          },
+          {
+            "display_name": "GMD",
+            "value": "GMD"
+          },
+          {
+            "display_name": "GNF",
+            "value": "GNF"
+          },
+          {
+            "display_name": "GTQ",
+            "value": "GTQ"
+          },
+          {
+            "display_name": "GYD",
+            "value": "GYD"
+          },
+          {
+            "display_name": "HKD",
+            "value": "HKD"
+          },
+          {
+            "display_name": "HNL",
+            "value": "HNL"
+          },
+          {
+            "display_name": "HRK",
+            "value": "HRK"
+          },
+          {
+            "display_name": "HTG",
+            "value": "HTG"
+          },
+          {
+            "display_name": "HUF",
+            "value": "HUF"
+          },
+          {
+            "display_name": "IDR",
+            "value": "IDR"
+          },
+          {
+            "display_name": "ILS",
+            "value": "ILS"
+          },
+          {
+            "display_name": "IMP",
+            "value": "IMP"
+          },
+          {
+            "display_name": "INR",
+            "value": "INR"
+          },
+          {
+            "display_name": "IQD",
+            "value": "IQD"
+          },
+          {
+            "display_name": "IRR",
+            "value": "IRR"
+          },
+          {
+            "display_name": "ISK",
+            "value": "ISK"
+          },
+          {
+            "display_name": "JMD",
+            "value": "JMD"
+          },
+          {
+            "display_name": "JOD",
+            "value": "JOD"
+          },
+          {
+            "display_name": "JPY",
+            "value": "JPY"
+          },
+          {
+            "display_name": "KES",
+            "value": "KES"
+          },
+          {
+            "display_name": "KGS",
+            "value": "KGS"
+          },
+          {
+            "display_name": "KHR",
+            "value": "KHR"
+          },
+          {
+            "display_name": "KMF",
+            "value": "KMF"
+          },
+          {
+            "display_name": "KPW",
+            "value": "KPW"
+          },
+          {
+            "display_name": "KRW",
+            "value": "KRW"
+          },
+          {
+            "display_name": "KWD",
+            "value": "KWD"
+          },
+          {
+            "display_name": "KYD",
+            "value": "KYD"
+          },
+          {
+            "display_name": "KZT",
+            "value": "KZT"
+          },
+          {
+            "display_name": "LAK",
+            "value": "LAK"
+          },
+          {
+            "display_name": "LBP",
+            "value": "LBP"
+          },
+          {
+            "display_name": "LKR",
+            "value": "LKR"
+          },
+          {
+            "display_name": "LRD",
+            "value": "LRD"
+          },
+          {
+            "display_name": "LSL",
+            "value": "LSL"
+          },
+          {
+            "display_name": "LTL",
+            "value": "LTL"
+          },
+          {
+            "display_name": "LVL",
+            "value": "LVL"
+          },
+          {
+            "display_name": "LYD",
+            "value": "LYD"
+          },
+          {
+            "display_name": "MAD",
+            "value": "MAD"
+          },
+          {
+            "display_name": "MDL",
+            "value": "MDL"
+          },
+          {
+            "display_name": "MGA",
+            "value": "MGA"
+          },
+          {
+            "display_name": "MKD",
+            "value": "MKD"
+          },
+          {
+            "display_name": "MMK",
+            "value": "MMK"
+          },
+          {
+            "display_name": "MNT",
+            "value": "MNT"
+          },
+          {
+            "display_name": "MOP",
+            "value": "MOP"
+          },
+          {
+            "display_name": "MRO",
+            "value": "MRO"
+          },
+          {
+            "display_name": "MUR",
+            "value": "MUR"
+          },
+          {
+            "display_name": "MVR",
+            "value": "MVR"
+          },
+          {
+            "display_name": "MWK",
+            "value": "MWK"
+          },
+          {
+            "display_name": "MXN",
+            "value": "MXN"
+          },
+          {
+            "display_name": "MYR",
+            "value": "MYR"
+          },
+          {
+            "display_name": "MZN",
+            "value": "MZN"
+          },
+          {
+            "display_name": "NAD",
+            "value": "NAD"
+          },
+          {
+            "display_name": "NGN",
+            "value": "NGN"
+          },
+          {
+            "display_name": "NIO",
+            "value": "NIO"
+          },
+          {
+            "display_name": "NOK",
+            "value": "NOK"
+          },
+          {
+            "display_name": "NPR",
+            "value": "NPR"
+          },
+          {
+            "display_name": "NZD",
+            "value": "NZD"
+          },
+          {
+            "display_name": "OMR",
+            "value": "OMR"
+          },
+          {
+            "display_name": "PEN",
+            "value": "PEN"
+          },
+          {
+            "display_name": "PGK",
+            "value": "PGK"
+          },
+          {
+            "display_name": "PHP",
+            "value": "PHP"
+          },
+          {
+            "display_name": "PKR",
+            "value": "PKR"
+          },
+          {
+            "display_name": "PLN",
+            "value": "PLN"
+          },
+          {
+            "display_name": "PYG",
+            "value": "PYG"
+          },
+          {
+            "display_name": "QAR",
+            "value": "QAR"
+          },
+          {
+            "display_name": "RON",
+            "value": "RON"
+          },
+          {
+            "display_name": "RSD",
+            "value": "RSD"
+          },
+          {
+            "display_name": "RUB",
+            "value": "RUB"
+          },
+          {
+            "display_name": "RWF",
+            "value": "RWF"
+          },
+          {
+            "display_name": "SAR",
+            "value": "SAR"
+          },
+          {
+            "display_name": "SBD",
+            "value": "SBD"
+          },
+          {
+            "display_name": "SCR",
+            "value": "SCR"
+          },
+          {
+            "display_name": "SDG",
+            "value": "SDG"
+          },
+          {
+            "display_name": "SEK",
+            "value": "SEK"
+          },
+          {
+            "display_name": "SGD",
+            "value": "SGD"
+          },
+          {
+            "display_name": "SHP",
+            "value": "SHP"
+          },
+          {
+            "display_name": "SLL",
+            "value": "SLL"
+          },
+          {
+            "display_name": "SOS",
+            "value": "SOS"
+          },
+          {
+            "display_name": "SRD",
+            "value": "SRD"
+          },
+          {
+            "display_name": "STD",
+            "value": "STD"
+          },
+          {
+            "display_name": "SYP",
+            "value": "SYP"
+          },
+          {
+            "display_name": "SZL",
+            "value": "SZL"
+          },
+          {
+            "display_name": "THB",
+            "value": "THB"
+          },
+          {
+            "display_name": "TJS",
+            "value": "TJS"
+          },
+          {
+            "display_name": "TMM",
+            "value": "TMM"
+          },
+          {
+            "display_name": "TND",
+            "value": "TND"
+          },
+          {
+            "display_name": "TOP",
+            "value": "TOP"
+          },
+          {
+            "display_name": "TRY",
+            "value": "TRY"
+          },
+          {
+            "display_name": "TTD",
+            "value": "TTD"
+          },
+          {
+            "display_name": "TVD",
+            "value": "TVD"
+          },
+          {
+            "display_name": "TWD",
+            "value": "TWD"
+          },
+          {
+            "display_name": "TZS",
+            "value": "TZS"
+          },
+          {
+            "display_name": "UAH",
+            "value": "UAH"
+          },
+          {
+            "display_name": "UGX",
+            "value": "UGX"
+          },
+          {
+            "display_name": "USD",
+            "value": "USD"
+          },
+          {
+            "display_name": "UYU",
+            "value": "UYU"
+          },
+          {
+            "display_name": "UZS",
+            "value": "UZS"
+          },
+          {
+            "display_name": "VEF",
+            "value": "VEF"
+          },
+          {
+            "display_name": "VND",
+            "value": "VND"
+          },
+          {
+            "display_name": "VUV",
+            "value": "VUV"
+          },
+          {
+            "display_name": "WST",
+            "value": "WST"
+          },
+          {
+            "display_name": "XAF",
+            "value": "XAF"
+          },
+          {
+            "display_name": "XAG",
+            "value": "XAG"
+          },
+          {
+            "display_name": "XAU",
+            "value": "XAU"
+          },
+          {
+            "display_name": "XBA",
+            "value": "XBA"
+          },
+          {
+            "display_name": "XBB",
+            "value": "XBB"
+          },
+          {
+            "display_name": "XBC",
+            "value": "XBC"
+          },
+          {
+            "display_name": "XBD",
+            "value": "XBD"
+          },
+          {
+            "display_name": "XCD",
+            "value": "XCD"
+          },
+          {
+            "display_name": "XDR",
+            "value": "XDR"
+          },
+          {
+            "display_name": "XFO",
+            "value": "XFO"
+          },
+          {
+            "display_name": "XFU",
+            "value": "XFU"
+          },
+          {
+            "display_name": "XOF",
+            "value": "XOF"
+          },
+          {
+            "display_name": "XPD",
+            "value": "XPD"
+          },
+          {
+            "display_name": "XPF",
+            "value": "XPF"
+          },
+          {
+            "display_name": "XPT",
+            "value": "XPT"
+          },
+          {
+            "display_name": "XTS",
+            "value": "XTS"
+          },
+          {
+            "display_name": "XYZ",
+            "value": "XYZ"
+          },
+          {
+            "display_name": "YER",
+            "value": "YER"
+          },
+          {
+            "display_name": "ZAR",
+            "value": "ZAR"
+          },
+          {
+            "display_name": "ZMK",
+            "value": "ZMK"
+          },
+          {
+            "display_name": "ZMW",
+            "value": "ZMW"
+          },
+          {
+            "display_name": "ZWD",
+            "value": "ZWD"
+          },
+          {
+            "display_name": "ZWL",
+            "value": "ZWL"
+          },
+          {
+            "display_name": "ZWN",
+            "value": "ZWN"
+          }
+        ]
+      },
+      "status": {
+        "type": "choice",
+        "required": false,
+        "read_only": false,
+        "label": "Status",
+        "choices": [
+          {
+            "display_name": "Inactive",
+            "value": "0"
+          },
+          {
+            "display_name": "Active",
+            "value": "1"
+          }
+        ]
+      },
+      "is_risk_free": {
+        "type": "boolean",
+        "required": false,
+        "read_only": false,
+        "label": "Is risk free"
+      },
+      "series": {
+        "type": "field",
+        "required": false,
+        "read_only": false,
+        "label": "Series",
+        "choices": []
+      }
+    }
+  }
+}

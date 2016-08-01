@@ -1,0 +1,49 @@
+<section ts-wrapper>
+  <ul class="vertical-menu">
+    <li ng-if="state.loading"
+        class="center bold"
+        ng-bind="'Loading...'"
+    ></li>
+    <li ng-if="!state.loading && state.error"
+        class="center bold"
+        ng-bind="'No Data'"
+    ></li>
+    <li ng-repeat="fund in data.fundgroup.funds"
+        ng-if="!state.loading && !state.error && fund.$loaded"
+        class="indent-2-icon"
+        ng-class="{
+          active:     fund.id == $scope.selectedFundId,
+          graphHover: fund.id == $scope.hoverFundId,
+          invalid:    !fund.$isValidForTimeframeId($scope.timeframeId)
+        }"
+        ng-focus="     $scope.hoverFundId =  fund.id"
+        ng-mouseover=" $scope.hoverFundId =  fund.id"
+        ng-mouseleave="$scope.hoverFundId = -fund.id"
+
+        data-hedge-fund-id="{{fund.id}}"
+        ts-repeat
+    >
+      <a ng-if="fund.$isValidForTimeframeId($scope.timeframeId)"
+         ng-bind="($index+1) + '. ' + fund.name"
+         ui-sref=".({ fund_id: fund.id })"
+         ui-sref-opts="{ notify: false }"
+      ></a>
+      <span ng-if="!fund.$isValidForTimeframeId($scope.timeframeId)"
+            ng-bind="($index+1) + '. ' + fund.name"
+      ></span>
+      <div class="actions">
+        <i class="image-button-trash"
+           ng-click="events.removeId(fund.id);"
+           title="Remove fund from watchlist"
+        ></i>
+        <a class="image-button-fund"
+           ui-sref="{{$scope.fundSref || $scope.defaults.fundSref}}({
+             fund_id:        fund.id,
+             share_class_id: fund.base_share_class.id
+           })"
+           title="View hedge fund profile"
+        ></a>
+      </div>
+    </li>
+  </ul>
+</section>

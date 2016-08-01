@@ -1,0 +1,14 @@
+<ul class="horizontal-control list-timeframe small">
+  <li ng-repeat="timeframe in state.timeframes">
+    <a href
+       ng-click="!timeframe.invalid && events.onChange({ timeframe: timeframe })"
+       ng-class="{
+       disabled: timeframe.invalid,
+       active:   timeframe.id == selectedId,
+       rounded:  timeframe.id == selectedId
+     }"
+       ng-bind="timeframe.name"
+    >
+    </a>
+  </li>
+</ul>

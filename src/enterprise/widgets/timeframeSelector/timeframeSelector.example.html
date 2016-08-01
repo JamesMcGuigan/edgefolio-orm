@@ -1,0 +1,32 @@
+<edgefolio-documentation>
+  <edgefolio-timeframe-selector/>
+</edgefolio-documentation>
+
+<edgefolio-documentation ng-init="$state.$current.data.fundId = 1">
+  <edgefolio-timeframe-selector items="['Fund:'+$state.$current.data.fundId]" />
+</edgefolio-documentation>
+
+
+<edgefolio-documentation>
+  <edgefolio-selectbox-fundgroup selected-id="$state.$current.data.fundgroupId" />
+  <edgefolio-timeframe-selector
+      fundgroup-id="$state.$current.data.fundgroupId"
+      selected-id="$state.$current.data.timeframId"
+  />
+</edgefolio-documentation>
+
+<edgefolio-documentation>
+  <edgefolio-timeframe-selector
+      fundgroup-id="$state.$current.data.fundgroupId"
+      selected-id="$state.$current.data.timeframId"
+      hide-since-inception="true"
+  />
+</edgefolio-documentation>
+
+<edgefolio-documentation>
+  <edgefolio-timeframe-selector
+      fundgroup-id="$state.$current.data.fundgroupId"
+      selected-id="$state.$current.data.timeframId"
+      hide-since-inception="false"
+  />
+</edgefolio-documentation>

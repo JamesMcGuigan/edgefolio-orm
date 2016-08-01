@@ -1,0 +1,14 @@
+<div>
+  <label ng-if="label">
+    <span ng-bind="label"></span>
+    <span>&nbsp;</span>
+  </label>
+  <select ng-if="state.loading">
+    <option>Loading...</option>
+  </select>
+  <select ng-if="!state.loading"
+          ng-options="item as item.name for item in items"
+          ng-model="state.selectedItem"
+          ng-change="events.onChange()"
+  ></select>
+</div>

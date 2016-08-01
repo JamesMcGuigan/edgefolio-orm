@@ -1,0 +1,126 @@
+{
+  "name": "Manager List",
+  "description": "",
+  "renders": [
+    "application/json",
+    "text/html"
+  ],
+  "parses": [
+    "application/json",
+    "application/x-www-form-urlencoded",
+    "multipart/form-data"
+  ],
+  "actions": {
+    "POST": {
+      "id": {
+        "type": "integer",
+        "required": false,
+        "read_only": true,
+        "label": "ID"
+      },
+      "first_name": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "First name",
+        "max_length": 100
+      },
+      "middle_name": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Middle name",
+        "max_length": 100
+      },
+      "last_name": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Last name",
+        "max_length": 100
+      },
+      "gender": {
+        "type": "choice",
+        "required": false,
+        "read_only": false,
+        "label": "Gender",
+        "choices": [
+          {
+            "display_name": "Male",
+            "value": "M"
+          },
+          {
+            "display_name": "Female",
+            "value": "F"
+          }
+        ]
+      },
+      "date_of_birth": {
+        "type": "date",
+        "required": false,
+        "read_only": false,
+        "label": "Date of birth"
+      },
+      "career_start_year": {
+        "type": "date",
+        "required": false,
+        "read_only": false,
+        "label": "Career start year"
+      },
+      "description": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Description"
+      },
+      "professional_title": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Professional title",
+        "max_length": 100
+      },
+      "responsibility": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Responsibility",
+        "max_length": 250
+      },
+      "phone": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Phone",
+        "max_length": 100
+      },
+      "email": {
+        "type": "email",
+        "required": false,
+        "read_only": false,
+        "label": "Email",
+        "max_length": 254
+      },
+      "linkedin_url": {
+        "type": "url",
+        "required": false,
+        "read_only": false,
+        "label": "Linkedin url",
+        "max_length": 200
+      },
+      "is_contact_person": {
+        "type": "boolean",
+        "required": false,
+        "read_only": false,
+        "label": "Is contact person"
+      },
+      "management_company": {
+        "type": "field",
+        "required": false,
+        "read_only": false,
+        "label": "Management company",
+        "choices": []
+      }
+    }
+  }
+}

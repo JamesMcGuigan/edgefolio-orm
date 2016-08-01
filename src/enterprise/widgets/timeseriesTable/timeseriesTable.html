@@ -1,0 +1,30 @@
+<section class="clear">
+  <div class="table-view with-padding">
+    <ul class="header">
+      <li></li>
+      <li class="gray"
+          ng-repeat="month in data.months track by $index"
+          ng-class="{bold: state.selected.month === month}"
+          ng-bind="month"
+      ></li>
+    </ul>
+    <ul ng-repeat="year in data.years track by $index">
+      <li class="gray"
+          ng-class="{bold: year == state.selected.year}"
+          ng-bind="year"
+      ></li>
+      <li ng-repeat="month in data.months track by $index"
+          class="border"
+          ng-class="{
+            bg:     year === state.selected.year || month === state.selected.month,
+            active: year === state.selected.year && month === state.selected.month,
+            red:    events.isNegative( data.table[year][month] )
+          }"
+          ng-bind="data.table[year][month] | nullToDash: { round: 2, null: '' }"
+          ng-mouseover="state.selected.year = year; state.selected.month = month"
+      ></li>
+    </ul>
+    <p class="center"       ng-if="state.loading">Loading...</p>
+    <p class="center error" ng-if="state.error">No Data</p>
+  </div>
+</section>

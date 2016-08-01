@@ -1,0 +1,35 @@
+{
+  "name": "edgefolio-orm",
+  "description": "Edgefolio ORM Model Layer",
+  "version": "2.0.0",
+  "homepage": "http://www.edgefolio.com",
+  "license": "Copyright Edgefolio AS 2015",
+  "private": true,
+  "dependencies": {
+    "simple-statistics": "Implemented ss.product() - not yet tagged as version release",
+    "simple-statistics": "simple-statistics/simple-statistics#master",
+
+    "angular": "~1.5.2",
+    "angular-mocks": "~1.5.2",
+    "array-generics": "plusdude/array-generics",
+    "d3": "~3.5.9",
+    "jquery": "~2.2.0",
+    "jsclass": "~4.0.5",
+    "karma-read-json": "~1.1.0",
+    "lodash": "~3.10.1",
+    "moment": "~2.12.0",
+    "moment-timezone": "~0.5.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.5.2",
+    "angular-scenario": "~1.5.2"
+  },
+  "unused": {
+    "datejs": "Has issues properly parsing and printing ISO format dates - use moment.js",
+    "datejs": "~1.0.0-rc3"
+  },
+  "resolutions": {
+    "angular": "~1.5.2",
+    "modernizr": "~2.8.3"
+  }
+}

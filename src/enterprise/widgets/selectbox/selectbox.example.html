@@ -1,0 +1,49 @@
+<edgefolio-documentation>
+  <edgefolio-selectbox/>
+</edgefolio-documentation>
+
+
+
+<edgefolio-documentation>
+  <edgefolio-selectbox
+    label="Items"
+    items="[{id: 1, name: 'First Item'}, {id: 2, name: 'Second Item'}, {id: 3, name: 'Third Item'}]"
+    selected-id="$state.$current.data.selectedId"
+    on-change="$state.$current.data.onChange(item)"
+  />
+</edgefolio-documentation>
+
+
+
+<edgefolio-documentation>
+  <edgefolio-selectbox
+    label="Benchmark"
+    items="Edgefolio.Benchmarks.load().results"
+    selected-id="$state.$current.data.benchmarkId"
+    on-change="$state.$current.data.onChange(item)"
+  />
+</edgefolio-documentation>
+
+
+
+<edgefolio-documentation>
+  <edgefolio-selectbox-fundgroup
+    selected-id="$state.$current.data.fundgroupId"
+    on-change="$state.$current.data.onChange(item)"
+  />
+</edgefolio-documentation>
+
+
+
+<edgefolio-documentation>
+  <edgefolio-selectbox-benchmark/>
+</edgefolio-documentation>
+
+
+
+<edgefolio-documentation>
+  <edgefolio-selectbox-benchmark
+      selected-id="$state.$current.data.benchmarkId2"
+      on-change="$state.$current.data.onChange(benchmark)"
+  />
+</edgefolio-documentation>

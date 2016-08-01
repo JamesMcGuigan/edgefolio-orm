@@ -1,0 +1,13 @@
+{
+  "name": "User Notifications List",
+  "description": "Endpoint allowing to list user notifications, get individual ones and update individual ones.\nDoes not allow to create or delete any notification.\nThe queryset is filtered based on the current user, only superusers can see all notifications",
+  "renders": [
+    "application/json",
+    "text/html"
+  ],
+  "parses": [
+    "application/json",
+    "application/x-www-form-urlencoded",
+    "multipart/form-data"
+  ]
+}

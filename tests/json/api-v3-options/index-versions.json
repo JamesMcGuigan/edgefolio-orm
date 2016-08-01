@@ -1,0 +1,95 @@
+{
+  "name": "Index Version List",
+  "description": "",
+  "renders": [
+    "application/json",
+    "text/html"
+  ],
+  "parses": [
+    "application/json",
+    "application/x-www-form-urlencoded",
+    "multipart/form-data"
+  ],
+  "actions": {
+    "POST": {
+      "id": {
+        "type": "integer",
+        "required": false,
+        "read_only": true,
+        "label": "ID"
+      },
+      "returns_time_series": {
+        "type": "field",
+        "required": false,
+        "read_only": false,
+        "label": "Returns time series"
+      },
+      "name": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Name",
+        "max_length": 100
+      },
+      "inception_date": {
+        "type": "date",
+        "required": false,
+        "read_only": false,
+        "label": "Inception date"
+      },
+      "wind_up_date": {
+        "type": "date",
+        "required": false,
+        "read_only": false,
+        "label": "Wind up date"
+      },
+      "ms_id": {
+        "type": "string",
+        "required": true,
+        "read_only": false,
+        "label": "Ms id",
+        "max_length": 20
+      },
+      "is_default_version": {
+        "type": "boolean",
+        "required": false,
+        "read_only": false,
+        "label": "Is default version"
+      },
+      "performance_type": {
+        "type": "choice",
+        "required": true,
+        "read_only": false,
+        "label": "Performance type",
+        "choices": [
+          {
+            "display_name": "Total return",
+            "value": "0"
+          },
+          {
+            "display_name": "Price return",
+            "value": "1"
+          },
+          {
+            "display_name": "Net total return",
+            "value": "2"
+          }
+        ]
+      },
+      "trading_symbol": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Trading symbol",
+        "max_length": 20
+      },
+      "index": {
+        "type": "field",
+        "required": false,
+        "read_only": false,
+        "label": "Index",
+        "choices": []
+      }
+    }
+  }
+}

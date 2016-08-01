@@ -1,0 +1,17 @@
+<edgefolio-documentation>
+  <edgefolio-fundgroup-menu/>
+</edgefolio-documentation>
+
+<edgefolio-documentation>
+  <edgefolio-timeframe-selector
+      selected-id="$state.$current.data.timeframeId"
+  />
+  <edgefolio-selectbox-fundgroup selected-id="$state.$current.data.fundgroupId"/>
+  <edgefolio-fundgroup-menu
+      fundgroup-id="$state.$current.data.fundgroupId"
+      selected-fund-id="$state.$current.data.selectedFundId"
+      hover-fund-id="$state.$current.data.hoverFundId"
+      timeframe-id="$state.$current.data.timeframeId"
+      fund-sref="'root.hedge-funds.profile'"
+  />
+</edgefolio-documentation>

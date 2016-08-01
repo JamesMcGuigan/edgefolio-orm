@@ -1,0 +1,48 @@
+{
+  "name": "Fund Search Query List",
+  "description": "",
+  "renders": [
+    "application/json",
+    "text/html"
+  ],
+  "parses": [
+    "application/json",
+    "application/x-www-form-urlencoded",
+    "multipart/form-data"
+  ],
+  "actions": {
+    "POST": {
+      "id": {
+        "type": "integer",
+        "required": false,
+        "read_only": true,
+        "label": "ID"
+      },
+      "created": {
+        "type": "datetime",
+        "required": false,
+        "read_only": true,
+        "label": "Created"
+      },
+      "modified": {
+        "type": "datetime",
+        "required": false,
+        "read_only": true,
+        "label": "Modified"
+      },
+      "name": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Name",
+        "max_length": 250
+      },
+      "query": {
+        "type": "field",
+        "required": false,
+        "read_only": false,
+        "label": "Query"
+      }
+    }
+  }
+}

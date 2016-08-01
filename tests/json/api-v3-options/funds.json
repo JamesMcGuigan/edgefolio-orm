@@ -1,0 +1,4356 @@
+{
+  "name": "Fund List",
+  "description": "",
+  "renders": [
+    "application/json",
+    "text/html"
+  ],
+  "parses": [
+    "application/json",
+    "application/x-www-form-urlencoded",
+    "multipart/form-data"
+  ],
+  "actions": {
+    "POST": {
+      "id": {
+        "type": "integer",
+        "required": false,
+        "read_only": true,
+        "label": "ID"
+      },
+      "share_classes": {
+        "type": "field",
+        "required": false,
+        "read_only": true,
+        "label": "Share classes",
+        "child": {
+          "type": "nested object",
+          "required": false,
+          "read_only": true,
+          "children": {}
+        }
+      },
+      "managed_account_minimum_investment": {
+        "type": "nested object",
+        "required": false,
+        "read_only": false,
+        "label": "Managed account minimum investment"
+      },
+      "capacity": {
+        "type": "nested object",
+        "required": false,
+        "read_only": false,
+        "label": "Capacity"
+      },
+      "name": {
+        "type": "string",
+        "required": true,
+        "read_only": false,
+        "label": "Name",
+        "max_length": 255
+      },
+      "legal_structure": {
+        "type": "choice",
+        "required": false,
+        "read_only": false,
+        "label": "Legal structure",
+        "choices": [
+          {
+            "display_name": "Partnership (3C1)",
+            "value": "01"
+          },
+          {
+            "display_name": "Partnership (3C7)",
+            "value": "02"
+          },
+          {
+            "display_name": "Corporation",
+            "value": "03"
+          },
+          {
+            "display_name": "Limited Liability Company",
+            "value": "04"
+          },
+          {
+            "display_name": "Limited Liability Partnership",
+            "value": "50"
+          },
+          {
+            "display_name": "Closed Ended Investment Company",
+            "value": "05"
+          },
+          {
+            "display_name": "Exempted Limited Partnership",
+            "value": "06"
+          },
+          {
+            "display_name": "Open Ended Investment Company",
+            "value": "08"
+          },
+          {
+            "display_name": "SICAV",
+            "value": "09"
+          },
+          {
+            "display_name": "Non-Exempted Limited Partnership",
+            "value": "11"
+          },
+          {
+            "display_name": "Registered Hedge Fund",
+            "value": "12"
+          },
+          {
+            "display_name": "SeparateAccount",
+            "value": "20"
+          },
+          {
+            "display_name": "Unit Trust",
+            "value": "22"
+          },
+          {
+            "display_name": "FCP",
+            "value": "23"
+          },
+          {
+            "display_name": "SICAF",
+            "value": "24"
+          },
+          {
+            "display_name": "Trust Units",
+            "value": "25"
+          },
+          {
+            "display_name": "Investment Trust",
+            "value": "26"
+          },
+          {
+            "display_name": "Unit Investment Trust",
+            "value": "27"
+          },
+          {
+            "display_name": "Grantor Trust",
+            "value": "28"
+          },
+          {
+            "display_name": "Trusts",
+            "value": "29"
+          },
+          {
+            "display_name": "Pooled",
+            "value": "30"
+          },
+          {
+            "display_name": "Custom Fund",
+            "value": "31"
+          },
+          {
+            "display_name": "Market Index",
+            "value": "32"
+          },
+          {
+            "display_name": "Managed Account",
+            "value": "33"
+          },
+          {
+            "display_name": "Unstructured Hedge Fund",
+            "value": "34"
+          },
+          {
+            "display_name": "FCIMT",
+            "value": "35"
+          },
+          {
+            "display_name": "FIP",
+            "value": "36"
+          },
+          {
+            "display_name": "FCPI",
+            "value": "37"
+          },
+          {
+            "display_name": "FCPE",
+            "value": "38"
+          },
+          {
+            "display_name": "SIMCAV",
+            "value": "39"
+          },
+          {
+            "display_name": "Structured Product",
+            "value": "40"
+          },
+          {
+            "display_name": "Property Syndicate",
+            "value": "41"
+          },
+          {
+            "display_name": "IGSA",
+            "value": "42"
+          },
+          {
+            "display_name": "CIT",
+            "value": "43"
+          },
+          {
+            "display_name": "Unlisted Closed End Investment Company",
+            "value": "45"
+          }
+        ]
+      },
+      "inception_date": {
+        "type": "date",
+        "required": false,
+        "read_only": false,
+        "label": "Inception date"
+      },
+      "wind_up_date": {
+        "type": "date",
+        "required": false,
+        "read_only": false,
+        "label": "Wind up date"
+      },
+      "description": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Description"
+      },
+      "logo": {
+        "type": "image upload",
+        "required": false,
+        "read_only": false,
+        "label": "Logo"
+      },
+      "team_size_front_office": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Team size front office",
+        "min_value": -2147483648,
+        "max_value": 2147483647
+      },
+      "team_size_back_office": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Team size back office",
+        "min_value": -2147483648,
+        "max_value": 2147483647
+      },
+      "isin": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Isin",
+        "max_length": 20
+      },
+      "sec_file_number": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Sec file number",
+        "max_length": 20
+      },
+      "cik": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Cik",
+        "max_length": 10
+      },
+      "crd_number": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Crd number",
+        "max_length": 20
+      },
+      "lei": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Lei",
+        "max_length": 20
+      },
+      "ein": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Ein",
+        "max_length": 20
+      },
+      "cusip_issuer_id": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Cusip issuer id",
+        "max_length": 9
+      },
+      "security_type": {
+        "type": "choice",
+        "required": false,
+        "read_only": false,
+        "label": "Security type",
+        "choices": [
+          {
+            "display_name": "Hedged",
+            "value": "Hedged"
+          },
+          {
+            "display_name": "Long Only",
+            "value": "Long Only"
+          },
+          {
+            "display_name": "Fund of Funds",
+            "value": "Fund of Funds"
+          }
+        ]
+      },
+      "style": {
+        "type": "choice",
+        "required": false,
+        "read_only": false,
+        "label": "Style",
+        "choices": [
+          {
+            "display_name": "Multi-style",
+            "value": "Multi-style"
+          },
+          {
+            "display_name": "Long/Short Equity",
+            "value": "Long/Short Equity"
+          },
+          {
+            "display_name": "Directional Trading",
+            "value": "Directional Trading"
+          },
+          {
+            "display_name": "Corporate Credit",
+            "value": "Corporate Credit"
+          },
+          {
+            "display_name": "Structured Credit",
+            "value": "Structured Credit"
+          },
+          {
+            "display_name": "Arbitrage",
+            "value": "Arbitrage"
+          },
+          {
+            "display_name": "Fund of Hedge Funds",
+            "value": "Fund of Hedge Funds"
+          },
+          {
+            "display_name": "Balanced",
+            "value": "Balanced"
+          },
+          {
+            "display_name": "Equity",
+            "value": "Equity"
+          },
+          {
+            "display_name": "Fixed Income",
+            "value": "Fixed Income"
+          },
+          {
+            "display_name": "Money Market",
+            "value": "Money Market"
+          },
+          {
+            "display_name": "Private Equity",
+            "value": "Private Equity"
+          },
+          {
+            "display_name": "Real Estate",
+            "value": "Real Estate"
+          },
+          {
+            "display_name": "Commodity",
+            "value": "Commodity"
+          },
+          {
+            "display_name": "Fund of Long Only Funds",
+            "value": "Fund of Long Only Funds"
+          }
+        ]
+      },
+      "strategy": {
+        "type": "choice",
+        "required": false,
+        "read_only": false,
+        "label": "Strategy",
+        "choices": [
+          {
+            "display_name": "Long Bias (beta > 60%)",
+            "value": "Long Bias (beta > 60%)"
+          },
+          {
+            "display_name": "Low Net (beta < 60%)",
+            "value": "Low Net (beta < 60%)"
+          },
+          {
+            "display_name": "Market Neutral",
+            "value": "Market Neutral"
+          },
+          {
+            "display_name": "Variable Bias",
+            "value": "Variable Bias"
+          },
+          {
+            "display_name": "Short Bias",
+            "value": "Short Bias"
+          },
+          {
+            "display_name": "Macro Discretionary",
+            "value": "Macro Discretionary"
+          },
+          {
+            "display_name": "CTA Systematic",
+            "value": "CTA Systematic"
+          },
+          {
+            "display_name": "CTA Discretionary",
+            "value": "CTA Discretionary"
+          },
+          {
+            "display_name": "Tactical Asset Allocation",
+            "value": "Tactical Asset Allocation"
+          },
+          {
+            "display_name": "FX Systematic",
+            "value": "FX Systematic"
+          },
+          {
+            "display_name": "Long Bias Credit",
+            "value": "Long Bias Credit"
+          },
+          {
+            "display_name": "Long Credit",
+            "value": "Long Credit"
+          },
+          {
+            "display_name": "Short Credit",
+            "value": "Short Credit"
+          },
+          {
+            "display_name": "Long/Short Credit",
+            "value": "Long/Short Credit"
+          },
+          {
+            "display_name": "Long Structured Credit",
+            "value": "Long Structured Credit"
+          },
+          {
+            "display_name": "Long Bias Structured Credit",
+            "value": "Long Bias Structured Credit"
+          },
+          {
+            "display_name": "Short Structured Credit",
+            "value": "Short Structured Credit"
+          },
+          {
+            "display_name": "Long/Short Structured Credit",
+            "value": "Long/Short Structured Credit"
+          },
+          {
+            "display_name": "Statistical Arbitrage",
+            "value": "Statistical Arbitrage"
+          },
+          {
+            "display_name": "Merger Arbitrage",
+            "value": "Merger Arbitrage"
+          },
+          {
+            "display_name": "Index Arbitrage",
+            "value": "Index Arbitrage"
+          },
+          {
+            "display_name": "Volatility Arbitrage",
+            "value": "Volatility Arbitrage"
+          },
+          {
+            "display_name": "Credit Arbitrage",
+            "value": "Credit Arbitrage"
+          },
+          {
+            "display_name": "Relative Value",
+            "value": "Relative Value"
+          },
+          {
+            "display_name": "Arbitrage",
+            "value": "Arbitrage"
+          },
+          {
+            "display_name": "Multi Arbitrage",
+            "value": "Multi Arbitrage"
+          },
+          {
+            "display_name": "Multi - Strategy",
+            "value": "Multi - Strategy"
+          },
+          {
+            "display_name": "Multi - Event",
+            "value": "Multi - Event"
+          },
+          {
+            "display_name": "Hybrid",
+            "value": "Hybrid"
+          },
+          {
+            "display_name": "Long Only",
+            "value": "Long Only"
+          },
+          {
+            "display_name": "Deep Value",
+            "value": "Deep Value"
+          },
+          {
+            "display_name": "GARP",
+            "value": "GARP"
+          },
+          {
+            "display_name": "Growth",
+            "value": "Growth"
+          },
+          {
+            "display_name": "High Dividend",
+            "value": "High Dividend"
+          },
+          {
+            "display_name": "Index Tracker",
+            "value": "Index Tracker"
+          },
+          {
+            "display_name": "Market Timing",
+            "value": "Market Timing"
+          },
+          {
+            "display_name": "Shareholder Activism",
+            "value": "Shareholder Activism"
+          },
+          {
+            "display_name": "Thematic",
+            "value": "Thematic"
+          },
+          {
+            "display_name": "Value",
+            "value": "Value"
+          },
+          {
+            "display_name": "Absolute Return",
+            "value": "Absolute Return"
+          },
+          {
+            "display_name": "Credit Convertibles",
+            "value": "Credit Convertibles"
+          },
+          {
+            "display_name": "Credit Emerging Debt",
+            "value": "Credit Emerging Debt"
+          },
+          {
+            "display_name": "Credit High Yield",
+            "value": "Credit High Yield"
+          },
+          {
+            "display_name": "Credit Investment Grade",
+            "value": "Credit Investment Grade"
+          },
+          {
+            "display_name": "Discretionary",
+            "value": "Discretionary"
+          },
+          {
+            "display_name": "Government Bonds",
+            "value": "Government Bonds"
+          },
+          {
+            "display_name": "Indexed Linked",
+            "value": "Indexed Linked"
+          },
+          {
+            "display_name": "None",
+            "value": "None"
+          },
+          {
+            "display_name": "Fund",
+            "value": "Fund"
+          },
+          {
+            "display_name": "Index",
+            "value": "Index"
+          },
+          {
+            "display_name": "REIT",
+            "value": "REIT"
+          },
+          {
+            "display_name": "Futures",
+            "value": "Futures"
+          }
+        ]
+      },
+      "methodology": {
+        "type": "choice",
+        "required": false,
+        "read_only": false,
+        "label": "Methodology",
+        "choices": [
+          {
+            "display_name": "Top Down",
+            "value": "Top Down"
+          },
+          {
+            "display_name": "Bottom Up",
+            "value": "Bottom Up"
+          },
+          {
+            "display_name": "Quantitative",
+            "value": "Quantitative"
+          },
+          {
+            "display_name": "Event Driven",
+            "value": "Event Driven"
+          },
+          {
+            "display_name": "Short term trading",
+            "value": "Short term trading"
+          },
+          {
+            "display_name": "High Turnover",
+            "value": "High Turnover"
+          },
+          {
+            "display_name": "Multi",
+            "value": "Multi"
+          },
+          {
+            "display_name": "Long Term",
+            "value": "Long Term"
+          },
+          {
+            "display_name": "Short Term",
+            "value": "Short Term"
+          },
+          {
+            "display_name": "Diversified",
+            "value": "Diversified"
+          },
+          {
+            "display_name": "Focused",
+            "value": "Focused"
+          },
+          {
+            "display_name": "Contrarian",
+            "value": "Contrarian"
+          },
+          {
+            "display_name": "Trend",
+            "value": "Trend"
+          },
+          {
+            "display_name": "Capital Structure Arbitrage",
+            "value": "Capital Structure Arbitrage"
+          },
+          {
+            "display_name": "Distressed",
+            "value": "Distressed"
+          },
+          {
+            "display_name": "High Yield",
+            "value": "High Yield"
+          },
+          {
+            "display_name": "Investment Grade",
+            "value": "Investment Grade"
+          },
+          {
+            "display_name": "Loans",
+            "value": "Loans"
+          },
+          {
+            "display_name": "Special Situation",
+            "value": "Special Situation"
+          },
+          {
+            "display_name": "Agency MBS",
+            "value": "Agency MBS"
+          },
+          {
+            "display_name": "CMBS",
+            "value": "CMBS"
+          },
+          {
+            "display_name": "Non Agency MBS",
+            "value": "Non Agency MBS"
+          },
+          {
+            "display_name": "Other ABS",
+            "value": "Other ABS"
+          },
+          {
+            "display_name": "Student Loans",
+            "value": "Student Loans"
+          },
+          {
+            "display_name": "MBS + RMBS",
+            "value": "MBS + RMBS"
+          },
+          {
+            "display_name": "Directional",
+            "value": "Directional"
+          },
+          {
+            "display_name": "Other",
+            "value": "Other"
+          },
+          {
+            "display_name": "None",
+            "value": "None"
+          }
+        ]
+      },
+      "region_exposure": {
+        "type": "choice",
+        "required": false,
+        "read_only": false,
+        "label": "Region exposure",
+        "choices": [
+          {
+            "display_name": "World",
+            "value": "World"
+          },
+          {
+            "display_name": "World Ex-U.S.",
+            "value": "World Ex-US"
+          },
+          {
+            "display_name": "Emerging Markets",
+            "value": "Emerging Markets"
+          },
+          {
+            "display_name": "U.S.",
+            "value": "US"
+          },
+          {
+            "display_name": "Europe",
+            "value": "Europe"
+          },
+          {
+            "display_name": "Japan",
+            "value": "Japan"
+          },
+          {
+            "display_name": "Asia",
+            "value": "Asia"
+          },
+          {
+            "display_name": "Asia ex-Japan",
+            "value": "Asia ex-Japan"
+          },
+          {
+            "display_name": "Latin America",
+            "value": "Latin America"
+          }
+        ]
+      },
+      "fixed_income_allocation": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Fixed income allocation",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "foreign_exchange_allocation": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Foreign exchange allocation",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "equity_allocation": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Equity allocation",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "credit_allocation": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Credit allocation",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "mortgage_allocation": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Mortgage allocation",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "convertible_allocation": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Convertible allocation",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "equity_style": {
+        "type": "choice",
+        "required": false,
+        "read_only": false,
+        "label": "Equity style",
+        "choices": [
+          {
+            "display_name": "All/Opportunistic",
+            "value": "All/Opportunistic"
+          },
+          {
+            "display_name": "Value",
+            "value": "Value"
+          },
+          {
+            "display_name": "Shareholder Activism",
+            "value": "Shareholder Activism"
+          },
+          {
+            "display_name": "Variable",
+            "value": "Variable"
+          },
+          {
+            "display_name": "Sector Bias",
+            "value": "Sector Bias"
+          },
+          {
+            "display_name": "Thematic",
+            "value": "Thematic"
+          },
+          {
+            "display_name": "Trading",
+            "value": "Trading"
+          },
+          {
+            "display_name": "Event",
+            "value": "Event"
+          }
+        ]
+      },
+      "market_cap": {
+        "type": "choice",
+        "required": false,
+        "read_only": false,
+        "label": "Market cap",
+        "choices": [
+          {
+            "display_name": "Large",
+            "value": "Large"
+          },
+          {
+            "display_name": "Mid",
+            "value": "Mid"
+          },
+          {
+            "display_name": "Small",
+            "value": "Small"
+          },
+          {
+            "display_name": "Large - Mid",
+            "value": "large - Mid"
+          },
+          {
+            "display_name": "Small - Mid",
+            "value": "Small - Mid"
+          },
+          {
+            "display_name": "All",
+            "value": "All"
+          }
+        ]
+      },
+      "basic_materials_sector_allocation": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Basic materials sector allocation",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "telecom_sector_allocation": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Telecom sector allocation",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "consumer_discretionary_sector_allocation": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Consumer discretionary sector allocation",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "consumer_staples_sector_allocation": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Consumer staples sector allocation",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "financials_sector_allocation": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Financials sector allocation",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "healthcare_sector_allocation": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Healthcare sector allocation",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "information_technology_sector_allocation": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Information technology sector allocation",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "industrials_sector_allocation": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Industrials sector allocation",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "utilities_sector_allocation": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Utilities sector allocation",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "energy_sector_allocation": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Energy sector allocation",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "resources_sector_allocation": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Resources sector allocation",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "sovereign_wealth": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Sovereign wealth",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "pension_funds": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Pension funds",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "foundations_and_endowments": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Foundations and endowments",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "consultants": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Consultants",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "family_offices": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Family offices",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "funds_of_funds": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Funds of funds",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "managed_account_platforms": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Managed account platforms",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "seeders_and_accelerators": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Seeders and accelerators",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "high_net_worth_individuals": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "High net worth individuals",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "internal": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Internal",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "number_of_investors": {
+        "type": "integer",
+        "required": false,
+        "read_only": false,
+        "label": "Number of investors",
+        "min_value": 0,
+        "max_value": 32767
+      },
+      "status": {
+        "type": "choice",
+        "required": false,
+        "read_only": false,
+        "label": "Status",
+        "choices": [
+          {
+            "display_name": "Inactive",
+            "value": "0"
+          },
+          {
+            "display_name": "Active",
+            "value": "1"
+          }
+        ]
+      },
+      "has_been_completely_edited": {
+        "type": "boolean",
+        "required": false,
+        "read_only": false,
+        "label": "Has been completely edited"
+      },
+      "manager_selection_status": {
+        "type": "choice",
+        "required": false,
+        "read_only": false,
+        "label": "Manager selection status",
+        "choices": [
+          {
+            "display_name": "None",
+            "value": "None"
+          },
+          {
+            "display_name": "No interest",
+            "value": "No interest"
+          },
+          {
+            "display_name": "Ex LAF",
+            "value": "Ex LAF"
+          },
+          {
+            "display_name": "Monitoring",
+            "value": "Monitoring"
+          },
+          {
+            "display_name": "Monitoring with interest",
+            "value": "Monitoring with interest"
+          },
+          {
+            "display_name": "Current fund procedure",
+            "value": "Current fund procedure"
+          },
+          {
+            "display_name": "Approved / LAF",
+            "value": "Approved / LAF"
+          },
+          {
+            "display_name": "LAF in Liquidation",
+            "value": "LAF in Liquidation"
+          },
+          {
+            "display_name": "LEG",
+            "value": "LEG"
+          },
+          {
+            "display_name": "LAF - uninvested",
+            "value": "LAF - uninvested"
+          }
+        ]
+      },
+      "strategy_description": {
+        "type": "string",
+        "required": false,
+        "read_only": false,
+        "label": "Strategy description"
+      },
+      "base_currency": {
+        "type": "choice",
+        "required": false,
+        "read_only": false,
+        "label": "Base currency",
+        "choices": [
+          {
+            "display_name": "AED",
+            "value": "AED"
+          },
+          {
+            "display_name": "AFN",
+            "value": "AFN"
+          },
+          {
+            "display_name": "ALL",
+            "value": "ALL"
+          },
+          {
+            "display_name": "AMD",
+            "value": "AMD"
+          },
+          {
+            "display_name": "ANG",
+            "value": "ANG"
+          },
+          {
+            "display_name": "AOA",
+            "value": "AOA"
+          },
+          {
+            "display_name": "ARS",
+            "value": "ARS"
+          },
+          {
+            "display_name": "AUD",
+            "value": "AUD"
+          },
+          {
+            "display_name": "AWG",
+            "value": "AWG"
+          },
+          {
+            "display_name": "AZN",
+            "value": "AZN"
+          },
+          {
+            "display_name": "BAM",
+            "value": "BAM"
+          },
+          {
+            "display_name": "BBD",
+            "value": "BBD"
+          },
+          {
+            "display_name": "BDT",
+            "value": "BDT"
+          },
+          {
+            "display_name": "BGN",
+            "value": "BGN"
+          },
+          {
+            "display_name": "BHD",
+            "value": "BHD"
+          },
+          {
+            "display_name": "BIF",
+            "value": "BIF"
+          },
+          {
+            "display_name": "BMD",
+            "value": "BMD"
+          },
+          {
+            "display_name": "BND",
+            "value": "BND"
+          },
+          {
+            "display_name": "BRL",
+            "value": "BRL"
+          },
+          {
+            "display_name": "BSD",
+            "value": "BSD"
+          },
+          {
+            "display_name": "BTN",
+            "value": "BTN"
+          },
+          {
+            "display_name": "BWP",
+            "value": "BWP"
+          },
+          {
+            "display_name": "BYR",
+            "value": "BYR"
+          },
+          {
+            "display_name": "BZD",
+            "value": "BZD"
+          },
+          {
+            "display_name": "CAD",
+            "value": "CAD"
+          },
+          {
+            "display_name": "CDF",
+            "value": "CDF"
+          },
+          {
+            "display_name": "CHF",
+            "value": "CHF"
+          },
+          {
+            "display_name": "CLP",
+            "value": "CLP"
+          },
+          {
+            "display_name": "CNY",
+            "value": "CNY"
+          },
+          {
+            "display_name": "COP",
+            "value": "COP"
+          },
+          {
+            "display_name": "CRC",
+            "value": "CRC"
+          },
+          {
+            "display_name": "CUC",
+            "value": "CUC"
+          },
+          {
+            "display_name": "CUP",
+            "value": "CUP"
+          },
+          {
+            "display_name": "CVE",
+            "value": "CVE"
+          },
+          {
+            "display_name": "CZK",
+            "value": "CZK"
+          },
+          {
+            "display_name": "DJF",
+            "value": "DJF"
+          },
+          {
+            "display_name": "DKK",
+            "value": "DKK"
+          },
+          {
+            "display_name": "DOP",
+            "value": "DOP"
+          },
+          {
+            "display_name": "DZD",
+            "value": "DZD"
+          },
+          {
+            "display_name": "EGP",
+            "value": "EGP"
+          },
+          {
+            "display_name": "ERN",
+            "value": "ERN"
+          },
+          {
+            "display_name": "ETB",
+            "value": "ETB"
+          },
+          {
+            "display_name": "EUR",
+            "value": "EUR"
+          },
+          {
+            "display_name": "FJD",
+            "value": "FJD"
+          },
+          {
+            "display_name": "FKP",
+            "value": "FKP"
+          },
+          {
+            "display_name": "GBP",
+            "value": "GBP"
+          },
+          {
+            "display_name": "GEL",
+            "value": "GEL"
+          },
+          {
+            "display_name": "GHS",
+            "value": "GHS"
+          },
+          {
+            "display_name": "GIP",
+            "value": "GIP"
+          },
+          {
+            "display_name": "GMD",
+            "value": "GMD"
+          },
+          {
+            "display_name": "GNF",
+            "value": "GNF"
+          },
+          {
+            "display_name": "GTQ",
+            "value": "GTQ"
+          },
+          {
+            "display_name": "GYD",
+            "value": "GYD"
+          },
+          {
+            "display_name": "HKD",
+            "value": "HKD"
+          },
+          {
+            "display_name": "HNL",
+            "value": "HNL"
+          },
+          {
+            "display_name": "HRK",
+            "value": "HRK"
+          },
+          {
+            "display_name": "HTG",
+            "value": "HTG"
+          },
+          {
+            "display_name": "HUF",
+            "value": "HUF"
+          },
+          {
+            "display_name": "IDR",
+            "value": "IDR"
+          },
+          {
+            "display_name": "ILS",
+            "value": "ILS"
+          },
+          {
+            "display_name": "IMP",
+            "value": "IMP"
+          },
+          {
+            "display_name": "INR",
+            "value": "INR"
+          },
+          {
+            "display_name": "IQD",
+            "value": "IQD"
+          },
+          {
+            "display_name": "IRR",
+            "value": "IRR"
+          },
+          {
+            "display_name": "ISK",
+            "value": "ISK"
+          },
+          {
+            "display_name": "JMD",
+            "value": "JMD"
+          },
+          {
+            "display_name": "JOD",
+            "value": "JOD"
+          },
+          {
+            "display_name": "JPY",
+            "value": "JPY"
+          },
+          {
+            "display_name": "KES",
+            "value": "KES"
+          },
+          {
+            "display_name": "KGS",
+            "value": "KGS"
+          },
+          {
+            "display_name": "KHR",
+            "value": "KHR"
+          },
+          {
+            "display_name": "KMF",
+            "value": "KMF"
+          },
+          {
+            "display_name": "KPW",
+            "value": "KPW"
+          },
+          {
+            "display_name": "KRW",
+            "value": "KRW"
+          },
+          {
+            "display_name": "KWD",
+            "value": "KWD"
+          },
+          {
+            "display_name": "KYD",
+            "value": "KYD"
+          },
+          {
+            "display_name": "KZT",
+            "value": "KZT"
+          },
+          {
+            "display_name": "LAK",
+            "value": "LAK"
+          },
+          {
+            "display_name": "LBP",
+            "value": "LBP"
+          },
+          {
+            "display_name": "LKR",
+            "value": "LKR"
+          },
+          {
+            "display_name": "LRD",
+            "value": "LRD"
+          },
+          {
+            "display_name": "LSL",
+            "value": "LSL"
+          },
+          {
+            "display_name": "LTL",
+            "value": "LTL"
+          },
+          {
+            "display_name": "LVL",
+            "value": "LVL"
+          },
+          {
+            "display_name": "LYD",
+            "value": "LYD"
+          },
+          {
+            "display_name": "MAD",
+            "value": "MAD"
+          },
+          {
+            "display_name": "MDL",
+            "value": "MDL"
+          },
+          {
+            "display_name": "MGA",
+            "value": "MGA"
+          },
+          {
+            "display_name": "MKD",
+            "value": "MKD"
+          },
+          {
+            "display_name": "MMK",
+            "value": "MMK"
+          },
+          {
+            "display_name": "MNT",
+            "value": "MNT"
+          },
+          {
+            "display_name": "MOP",
+            "value": "MOP"
+          },
+          {
+            "display_name": "MRO",
+            "value": "MRO"
+          },
+          {
+            "display_name": "MUR",
+            "value": "MUR"
+          },
+          {
+            "display_name": "MVR",
+            "value": "MVR"
+          },
+          {
+            "display_name": "MWK",
+            "value": "MWK"
+          },
+          {
+            "display_name": "MXN",
+            "value": "MXN"
+          },
+          {
+            "display_name": "MYR",
+            "value": "MYR"
+          },
+          {
+            "display_name": "MZN",
+            "value": "MZN"
+          },
+          {
+            "display_name": "NAD",
+            "value": "NAD"
+          },
+          {
+            "display_name": "NGN",
+            "value": "NGN"
+          },
+          {
+            "display_name": "NIO",
+            "value": "NIO"
+          },
+          {
+            "display_name": "NOK",
+            "value": "NOK"
+          },
+          {
+            "display_name": "NPR",
+            "value": "NPR"
+          },
+          {
+            "display_name": "NZD",
+            "value": "NZD"
+          },
+          {
+            "display_name": "OMR",
+            "value": "OMR"
+          },
+          {
+            "display_name": "PEN",
+            "value": "PEN"
+          },
+          {
+            "display_name": "PGK",
+            "value": "PGK"
+          },
+          {
+            "display_name": "PHP",
+            "value": "PHP"
+          },
+          {
+            "display_name": "PKR",
+            "value": "PKR"
+          },
+          {
+            "display_name": "PLN",
+            "value": "PLN"
+          },
+          {
+            "display_name": "PYG",
+            "value": "PYG"
+          },
+          {
+            "display_name": "QAR",
+            "value": "QAR"
+          },
+          {
+            "display_name": "RON",
+            "value": "RON"
+          },
+          {
+            "display_name": "RSD",
+            "value": "RSD"
+          },
+          {
+            "display_name": "RUB",
+            "value": "RUB"
+          },
+          {
+            "display_name": "RWF",
+            "value": "RWF"
+          },
+          {
+            "display_name": "SAR",
+            "value": "SAR"
+          },
+          {
+            "display_name": "SBD",
+            "value": "SBD"
+          },
+          {
+            "display_name": "SCR",
+            "value": "SCR"
+          },
+          {
+            "display_name": "SDG",
+            "value": "SDG"
+          },
+          {
+            "display_name": "SEK",
+            "value": "SEK"
+          },
+          {
+            "display_name": "SGD",
+            "value": "SGD"
+          },
+          {
+            "display_name": "SHP",
+            "value": "SHP"
+          },
+          {
+            "display_name": "SLL",
+            "value": "SLL"
+          },
+          {
+            "display_name": "SOS",
+            "value": "SOS"
+          },
+          {
+            "display_name": "SRD",
+            "value": "SRD"
+          },
+          {
+            "display_name": "STD",
+            "value": "STD"
+          },
+          {
+            "display_name": "SYP",
+            "value": "SYP"
+          },
+          {
+            "display_name": "SZL",
+            "value": "SZL"
+          },
+          {
+            "display_name": "THB",
+            "value": "THB"
+          },
+          {
+            "display_name": "TJS",
+            "value": "TJS"
+          },
+          {
+            "display_name": "TMM",
+            "value": "TMM"
+          },
+          {
+            "display_name": "TND",
+            "value": "TND"
+          },
+          {
+            "display_name": "TOP",
+            "value": "TOP"
+          },
+          {
+            "display_name": "TRY",
+            "value": "TRY"
+          },
+          {
+            "display_name": "TTD",
+            "value": "TTD"
+          },
+          {
+            "display_name": "TVD",
+            "value": "TVD"
+          },
+          {
+            "display_name": "TWD",
+            "value": "TWD"
+          },
+          {
+            "display_name": "TZS",
+            "value": "TZS"
+          },
+          {
+            "display_name": "UAH",
+            "value": "UAH"
+          },
+          {
+            "display_name": "UGX",
+            "value": "UGX"
+          },
+          {
+            "display_name": "USD",
+            "value": "USD"
+          },
+          {
+            "display_name": "UYU",
+            "value": "UYU"
+          },
+          {
+            "display_name": "UZS",
+            "value": "UZS"
+          },
+          {
+            "display_name": "VEF",
+            "value": "VEF"
+          },
+          {
+            "display_name": "VND",
+            "value": "VND"
+          },
+          {
+            "display_name": "VUV",
+            "value": "VUV"
+          },
+          {
+            "display_name": "WST",
+            "value": "WST"
+          },
+          {
+            "display_name": "XAF",
+            "value": "XAF"
+          },
+          {
+            "display_name": "XAG",
+            "value": "XAG"
+          },
+          {
+            "display_name": "XAU",
+            "value": "XAU"
+          },
+          {
+            "display_name": "XBA",
+            "value": "XBA"
+          },
+          {
+            "display_name": "XBB",
+            "value": "XBB"
+          },
+          {
+            "display_name": "XBC",
+            "value": "XBC"
+          },
+          {
+            "display_name": "XBD",
+            "value": "XBD"
+          },
+          {
+            "display_name": "XCD",
+            "value": "XCD"
+          },
+          {
+            "display_name": "XDR",
+            "value": "XDR"
+          },
+          {
+            "display_name": "XFO",
+            "value": "XFO"
+          },
+          {
+            "display_name": "XFU",
+            "value": "XFU"
+          },
+          {
+            "display_name": "XOF",
+            "value": "XOF"
+          },
+          {
+            "display_name": "XPD",
+            "value": "XPD"
+          },
+          {
+            "display_name": "XPF",
+            "value": "XPF"
+          },
+          {
+            "display_name": "XPT",
+            "value": "XPT"
+          },
+          {
+            "display_name": "XTS",
+            "value": "XTS"
+          },
+          {
+            "display_name": "XYZ",
+            "value": "XYZ"
+          },
+          {
+            "display_name": "YER",
+            "value": "YER"
+          },
+          {
+            "display_name": "ZAR",
+            "value": "ZAR"
+          },
+          {
+            "display_name": "ZMK",
+            "value": "ZMK"
+          },
+          {
+            "display_name": "ZMW",
+            "value": "ZMW"
+          },
+          {
+            "display_name": "ZWD",
+            "value": "ZWD"
+          },
+          {
+            "display_name": "ZWL",
+            "value": "ZWL"
+          },
+          {
+            "display_name": "ZWN",
+            "value": "ZWN"
+          }
+        ]
+      },
+      "domicile_country": {
+        "type": "choice",
+        "required": false,
+        "read_only": false,
+        "label": "Domicile country",
+        "choices": [
+          {
+            "display_name": "Afghanistan",
+            "value": "AFG"
+          },
+          {
+            "display_name": "Åland Islands",
+            "value": "ALA"
+          },
+          {
+            "display_name": "Albania",
+            "value": "ALB"
+          },
+          {
+            "display_name": "Algeria",
+            "value": "DZA"
+          },
+          {
+            "display_name": "American Samoa",
+            "value": "ASM"
+          },
+          {
+            "display_name": "Andorra",
+            "value": "AND"
+          },
+          {
+            "display_name": "Angola",
+            "value": "AGO"
+          },
+          {
+            "display_name": "Anguilla",
+            "value": "AIA"
+          },
+          {
+            "display_name": "Antarctica",
+            "value": "ATA"
+          },
+          {
+            "display_name": "Antigua and Barbuda",
+            "value": "ATG"
+          },
+          {
+            "display_name": "Argentina",
+            "value": "ARG"
+          },
+          {
+            "display_name": "Armenia",
+            "value": "ARM"
+          },
+          {
+            "display_name": "Aruba",
+            "value": "ABW"
+          },
+          {
+            "display_name": "Australia",
+            "value": "AUS"
+          },
+          {
+            "display_name": "Austria",
+            "value": "AUT"
+          },
+          {
+            "display_name": "Azerbaijan",
+            "value": "AZE"
+          },
+          {
+            "display_name": "Bahamas",
+            "value": "BHS"
+          },
+          {
+            "display_name": "Bahrain",
+            "value": "BHR"
+          },
+          {
+            "display_name": "Bangladesh",
+            "value": "BGD"
+          },
+          {
+            "display_name": "Barbados",
+            "value": "BRB"
+          },
+          {
+            "display_name": "Belarus",
+            "value": "BLR"
+          },
+          {
+            "display_name": "Belgium",
+            "value": "BEL"
+          },
+          {
+            "display_name": "Belize",
+            "value": "BLZ"
+          },
+          {
+            "display_name": "Benin",
+            "value": "BEN"
+          },
+          {
+            "display_name": "Bermuda",
+            "value": "BMU"
+          },
+          {
+            "display_name": "Bhutan",
+            "value": "BTN"
+          },
+          {
+            "display_name": "Bolivia, Plurinational State of",
+            "value": "BOL"
+          },
+          {
+            "display_name": "Bonaire, Sint Eustatius and Saba",
+            "value": "BES"
+          },
+          {
+            "display_name": "Bosnia and Herzegovina",
+            "value": "BIH"
+          },
+          {
+            "display_name": "Botswana",
+            "value": "BWA"
+          },
+          {
+            "display_name": "Bouvet Island",
+            "value": "BVT"
+          },
+          {
+            "display_name": "Brazil",
+            "value": "BRA"
+          },
+          {
+            "display_name": "British Indian Ocean Territory",
+            "value": "IOT"
+          },
+          {
+            "display_name": "Brunei Darussalam",
+            "value": "BRN"
+          },
+          {
+            "display_name": "Bulgaria",
+            "value": "BGR"
+          },
+          {
+            "display_name": "Burkina Faso",
+            "value": "BFA"
+          },
+          {
+            "display_name": "Burundi",
+            "value": "BDI"
+          },
+          {
+            "display_name": "Cambodia",
+            "value": "KHM"
+          },
+          {
+            "display_name": "Cameroon",
+            "value": "CMR"
+          },
+          {
+            "display_name": "Canada",
+            "value": "CAN"
+          },
+          {
+            "display_name": "Cape Verde",
+            "value": "CPV"
+          },
+          {
+            "display_name": "Cayman Islands",
+            "value": "CYM"
+          },
+          {
+            "display_name": "Central African Republic",
+            "value": "CAF"
+          },
+          {
+            "display_name": "Chad",
+            "value": "TCD"
+          },
+          {
+            "display_name": "Chile",
+            "value": "CHL"
+          },
+          {
+            "display_name": "China",
+            "value": "CHN"
+          },
+          {
+            "display_name": "Christmas Island",
+            "value": "CXR"
+          },
+          {
+            "display_name": "Cocos (Keeling) Islands",
+            "value": "CCK"
+          },
+          {
+            "display_name": "Colombia",
+            "value": "COL"
+          },
+          {
+            "display_name": "Comoros",
+            "value": "COM"
+          },
+          {
+            "display_name": "Congo",
+            "value": "COG"
+          },
+          {
+            "display_name": "Congo, The Democratic Republic of the",
+            "value": "COD"
+          },
+          {
+            "display_name": "Cook Islands",
+            "value": "COK"
+          },
+          {
+            "display_name": "Costa Rica",
+            "value": "CRI"
+          },
+          {
+            "display_name": "Côte d'Ivoire",
+            "value": "CIV"
+          },
+          {
+            "display_name": "Croatia",
+            "value": "HRV"
+          },
+          {
+            "display_name": "Cuba",
+            "value": "CUB"
+          },
+          {
+            "display_name": "Curaçao",
+            "value": "CUW"
+          },
+          {
+            "display_name": "Cyprus",
+            "value": "CYP"
+          },
+          {
+            "display_name": "Czech Republic",
+            "value": "CZE"
+          },
+          {
+            "display_name": "Denmark",
+            "value": "DNK"
+          },
+          {
+            "display_name": "Djibouti",
+            "value": "DJI"
+          },
+          {
+            "display_name": "Dominica",
+            "value": "DMA"
+          },
+          {
+            "display_name": "Dominican Republic",
+            "value": "DOM"
+          },
+          {
+            "display_name": "Ecuador",
+            "value": "ECU"
+          },
+          {
+            "display_name": "Egypt",
+            "value": "EGY"
+          },
+          {
+            "display_name": "El Salvador",
+            "value": "SLV"
+          },
+          {
+            "display_name": "Equatorial Guinea",
+            "value": "GNQ"
+          },
+          {
+            "display_name": "Eritrea",
+            "value": "ERI"
+          },
+          {
+            "display_name": "Estonia",
+            "value": "EST"
+          },
+          {
+            "display_name": "Ethiopia",
+            "value": "ETH"
+          },
+          {
+            "display_name": "Falkland Islands (Malvinas)",
+            "value": "FLK"
+          },
+          {
+            "display_name": "Faroe Islands",
+            "value": "FRO"
+          },
+          {
+            "display_name": "Fiji",
+            "value": "FJI"
+          },
+          {
+            "display_name": "Finland",
+            "value": "FIN"
+          },
+          {
+            "display_name": "France",
+            "value": "FRA"
+          },
+          {
+            "display_name": "French Guiana",
+            "value": "GUF"
+          },
+          {
+            "display_name": "French Polynesia",
+            "value": "PYF"
+          },
+          {
+            "display_name": "French Southern Territories",
+            "value": "ATF"
+          },
+          {
+            "display_name": "Gabon",
+            "value": "GAB"
+          },
+          {
+            "display_name": "Gambia",
+            "value": "GMB"
+          },
+          {
+            "display_name": "Georgia",
+            "value": "GEO"
+          },
+          {
+            "display_name": "Germany",
+            "value": "DEU"
+          },
+          {
+            "display_name": "Ghana",
+            "value": "GHA"
+          },
+          {
+            "display_name": "Gibraltar",
+            "value": "GIB"
+          },
+          {
+            "display_name": "Greece",
+            "value": "GRC"
+          },
+          {
+            "display_name": "Greenland",
+            "value": "GRL"
+          },
+          {
+            "display_name": "Grenada",
+            "value": "GRD"
+          },
+          {
+            "display_name": "Guadeloupe",
+            "value": "GLP"
+          },
+          {
+            "display_name": "Guam",
+            "value": "GUM"
+          },
+          {
+            "display_name": "Guatemala",
+            "value": "GTM"
+          },
+          {
+            "display_name": "Guernsey",
+            "value": "GGY"
+          },
+          {
+            "display_name": "Guinea",
+            "value": "GIN"
+          },
+          {
+            "display_name": "Guinea-Bissau",
+            "value": "GNB"
+          },
+          {
+            "display_name": "Guyana",
+            "value": "GUY"
+          },
+          {
+            "display_name": "Haiti",
+            "value": "HTI"
+          },
+          {
+            "display_name": "Heard Island and McDonald Islands",
+            "value": "HMD"
+          },
+          {
+            "display_name": "Holy See (Vatican City State)",
+            "value": "VAT"
+          },
+          {
+            "display_name": "Honduras",
+            "value": "HND"
+          },
+          {
+            "display_name": "Hong Kong",
+            "value": "HKG"
+          },
+          {
+            "display_name": "Hungary",
+            "value": "HUN"
+          },
+          {
+            "display_name": "Iceland",
+            "value": "ISL"
+          },
+          {
+            "display_name": "India",
+            "value": "IND"
+          },
+          {
+            "display_name": "Indonesia",
+            "value": "IDN"
+          },
+          {
+            "display_name": "Iran, Islamic Republic of",
+            "value": "IRN"
+          },
+          {
+            "display_name": "Iraq",
+            "value": "IRQ"
+          },
+          {
+            "display_name": "Ireland",
+            "value": "IRL"
+          },
+          {
+            "display_name": "Isle of Man",
+            "value": "IMN"
+          },
+          {
+            "display_name": "Israel",
+            "value": "ISR"
+          },
+          {
+            "display_name": "Italy",
+            "value": "ITA"
+          },
+          {
+            "display_name": "Jamaica",
+            "value": "JAM"
+          },
+          {
+            "display_name": "Japan",
+            "value": "JPN"
+          },
+          {
+            "display_name": "Jersey",
+            "value": "JEY"
+          },
+          {
+            "display_name": "Jordan",
+            "value": "JOR"
+          },
+          {
+            "display_name": "Kazakhstan",
+            "value": "KAZ"
+          },
+          {
+            "display_name": "Kenya",
+            "value": "KEN"
+          },
+          {
+            "display_name": "Kiribati",
+            "value": "KIR"
+          },
+          {
+            "display_name": "Korea, Democratic People's Republic of",
+            "value": "PRK"
+          },
+          {
+            "display_name": "Korea, Republic of",
+            "value": "KOR"
+          },
+          {
+            "display_name": "Kuwait",
+            "value": "KWT"
+          },
+          {
+            "display_name": "Kyrgyzstan",
+            "value": "KGZ"
+          },
+          {
+            "display_name": "Lao People's Democratic Republic",
+            "value": "LAO"
+          },
+          {
+            "display_name": "Latvia",
+            "value": "LVA"
+          },
+          {
+            "display_name": "Lebanon",
+            "value": "LBN"
+          },
+          {
+            "display_name": "Lesotho",
+            "value": "LSO"
+          },
+          {
+            "display_name": "Liberia",
+            "value": "LBR"
+          },
+          {
+            "display_name": "Libya",
+            "value": "LBY"
+          },
+          {
+            "display_name": "Liechtenstein",
+            "value": "LIE"
+          },
+          {
+            "display_name": "Lithuania",
+            "value": "LTU"
+          },
+          {
+            "display_name": "Luxembourg",
+            "value": "LUX"
+          },
+          {
+            "display_name": "Macao",
+            "value": "MAC"
+          },
+          {
+            "display_name": "Macedonia, Republic of",
+            "value": "MKD"
+          },
+          {
+            "display_name": "Madagascar",
+            "value": "MDG"
+          },
+          {
+            "display_name": "Malawi",
+            "value": "MWI"
+          },
+          {
+            "display_name": "Malaysia",
+            "value": "MYS"
+          },
+          {
+            "display_name": "Maldives",
+            "value": "MDV"
+          },
+          {
+            "display_name": "Mali",
+            "value": "MLI"
+          },
+          {
+            "display_name": "Malta",
+            "value": "MLT"
+          },
+          {
+            "display_name": "Marshall Islands",
+            "value": "MHL"
+          },
+          {
+            "display_name": "Martinique",
+            "value": "MTQ"
+          },
+          {
+            "display_name": "Mauritania",
+            "value": "MRT"
+          },
+          {
+            "display_name": "Mauritius",
+            "value": "MUS"
+          },
+          {
+            "display_name": "Mayotte",
+            "value": "MYT"
+          },
+          {
+            "display_name": "Mexico",
+            "value": "MEX"
+          },
+          {
+            "display_name": "Micronesia, Federated States of",
+            "value": "FSM"
+          },
+          {
+            "display_name": "Moldova, Republic of",
+            "value": "MDA"
+          },
+          {
+            "display_name": "Monaco",
+            "value": "MCO"
+          },
+          {
+            "display_name": "Mongolia",
+            "value": "MNG"
+          },
+          {
+            "display_name": "Montenegro",
+            "value": "MNE"
+          },
+          {
+            "display_name": "Montserrat",
+            "value": "MSR"
+          },
+          {
+            "display_name": "Morocco",
+            "value": "MAR"
+          },
+          {
+            "display_name": "Mozambique",
+            "value": "MOZ"
+          },
+          {
+            "display_name": "Myanmar",
+            "value": "MMR"
+          },
+          {
+            "display_name": "Namibia",
+            "value": "NAM"
+          },
+          {
+            "display_name": "Nauru",
+            "value": "NRU"
+          },
+          {
+            "display_name": "Nepal",
+            "value": "NPL"
+          },
+          {
+            "display_name": "Netherlands",
+            "value": "NLD"
+          },
+          {
+            "display_name": "New Caledonia",
+            "value": "NCL"
+          },
+          {
+            "display_name": "New Zealand",
+            "value": "NZL"
+          },
+          {
+            "display_name": "Nicaragua",
+            "value": "NIC"
+          },
+          {
+            "display_name": "Niger",
+            "value": "NER"
+          },
+          {
+            "display_name": "Nigeria",
+            "value": "NGA"
+          },
+          {
+            "display_name": "Niue",
+            "value": "NIU"
+          },
+          {
+            "display_name": "Norfolk Island",
+            "value": "NFK"
+          },
+          {
+            "display_name": "Northern Mariana Islands",
+            "value": "MNP"
+          },
+          {
+            "display_name": "Norway",
+            "value": "NOR"
+          },
+          {
+            "display_name": "Oman",
+            "value": "OMN"
+          },
+          {
+            "display_name": "Pakistan",
+            "value": "PAK"
+          },
+          {
+            "display_name": "Palau",
+            "value": "PLW"
+          },
+          {
+            "display_name": "Palestine, State of",
+            "value": "PSE"
+          },
+          {
+            "display_name": "Panama",
+            "value": "PAN"
+          },
+          {
+            "display_name": "Papua New Guinea",
+            "value": "PNG"
+          },
+          {
+            "display_name": "Paraguay",
+            "value": "PRY"
+          },
+          {
+            "display_name": "Peru",
+            "value": "PER"
+          },
+          {
+            "display_name": "Philippines",
+            "value": "PHL"
+          },
+          {
+            "display_name": "Pitcairn",
+            "value": "PCN"
+          },
+          {
+            "display_name": "Poland",
+            "value": "POL"
+          },
+          {
+            "display_name": "Portugal",
+            "value": "PRT"
+          },
+          {
+            "display_name": "Puerto Rico",
+            "value": "PRI"
+          },
+          {
+            "display_name": "Qatar",
+            "value": "QAT"
+          },
+          {
+            "display_name": "Réunion",
+            "value": "REU"
+          },
+          {
+            "display_name": "Romania",
+            "value": "ROU"
+          },
+          {
+            "display_name": "Russian Federation",
+            "value": "RUS"
+          },
+          {
+            "display_name": "Rwanda",
+            "value": "RWA"
+          },
+          {
+            "display_name": "Saint Barthélemy",
+            "value": "BLM"
+          },
+          {
+            "display_name": "Saint Helena, Ascension and Tristan da Cunha",
+            "value": "SHN"
+          },
+          {
+            "display_name": "Saint Kitts and Nevis",
+            "value": "KNA"
+          },
+          {
+            "display_name": "Saint Lucia",
+            "value": "LCA"
+          },
+          {
+            "display_name": "Saint Martin (French part)",
+            "value": "MAF"
+          },
+          {
+            "display_name": "Saint Pierre and Miquelon",
+            "value": "SPM"
+          },
+          {
+            "display_name": "Saint Vincent and the Grenadines",
+            "value": "VCT"
+          },
+          {
+            "display_name": "Samoa",
+            "value": "WSM"
+          },
+          {
+            "display_name": "San Marino",
+            "value": "SMR"
+          },
+          {
+            "display_name": "Sao Tome and Principe",
+            "value": "STP"
+          },
+          {
+            "display_name": "Saudi Arabia",
+            "value": "SAU"
+          },
+          {
+            "display_name": "Senegal",
+            "value": "SEN"
+          },
+          {
+            "display_name": "Serbia",
+            "value": "SRB"
+          },
+          {
+            "display_name": "Seychelles",
+            "value": "SYC"
+          },
+          {
+            "display_name": "Sierra Leone",
+            "value": "SLE"
+          },
+          {
+            "display_name": "Singapore",
+            "value": "SGP"
+          },
+          {
+            "display_name": "Sint Maarten (Dutch part)",
+            "value": "SXM"
+          },
+          {
+            "display_name": "Slovakia",
+            "value": "SVK"
+          },
+          {
+            "display_name": "Slovenia",
+            "value": "SVN"
+          },
+          {
+            "display_name": "Solomon Islands",
+            "value": "SLB"
+          },
+          {
+            "display_name": "Somalia",
+            "value": "SOM"
+          },
+          {
+            "display_name": "South Africa",
+            "value": "ZAF"
+          },
+          {
+            "display_name": "South Georgia and the South Sandwich Islands",
+            "value": "SGS"
+          },
+          {
+            "display_name": "Spain",
+            "value": "ESP"
+          },
+          {
+            "display_name": "Sri Lanka",
+            "value": "LKA"
+          },
+          {
+            "display_name": "Sudan",
+            "value": "SDN"
+          },
+          {
+            "display_name": "Suriname",
+            "value": "SUR"
+          },
+          {
+            "display_name": "South Sudan",
+            "value": "SSD"
+          },
+          {
+            "display_name": "Svalbard and Jan Mayen",
+            "value": "SJM"
+          },
+          {
+            "display_name": "Swaziland",
+            "value": "SWZ"
+          },
+          {
+            "display_name": "Sweden",
+            "value": "SWE"
+          },
+          {
+            "display_name": "Switzerland",
+            "value": "CHE"
+          },
+          {
+            "display_name": "Syrian Arab Republic",
+            "value": "SYR"
+          },
+          {
+            "display_name": "Taiwan, Province of China",
+            "value": "TWN"
+          },
+          {
+            "display_name": "Tajikistan",
+            "value": "TJK"
+          },
+          {
+            "display_name": "Tanzania, United Republic of",
+            "value": "TZA"
+          },
+          {
+            "display_name": "Thailand",
+            "value": "THA"
+          },
+          {
+            "display_name": "Timor-Leste",
+            "value": "TLS"
+          },
+          {
+            "display_name": "Togo",
+            "value": "TGO"
+          },
+          {
+            "display_name": "Tokelau",
+            "value": "TKL"
+          },
+          {
+            "display_name": "Tonga",
+            "value": "TON"
+          },
+          {
+            "display_name": "Trinidad and Tobago",
+            "value": "TTO"
+          },
+          {
+            "display_name": "Tunisia",
+            "value": "TUN"
+          },
+          {
+            "display_name": "Turkey",
+            "value": "TUR"
+          },
+          {
+            "display_name": "Turkmenistan",
+            "value": "TKM"
+          },
+          {
+            "display_name": "Turks and Caicos Islands",
+            "value": "TCA"
+          },
+          {
+            "display_name": "Tuvalu",
+            "value": "TUV"
+          },
+          {
+            "display_name": "Uganda",
+            "value": "UGA"
+          },
+          {
+            "display_name": "Ukraine",
+            "value": "UKR"
+          },
+          {
+            "display_name": "United Arab Emirates",
+            "value": "ARE"
+          },
+          {
+            "display_name": "United Kingdom",
+            "value": "GBR"
+          },
+          {
+            "display_name": "United States",
+            "value": "USA"
+          },
+          {
+            "display_name": "United States Minor Outlying Islands",
+            "value": "UMI"
+          },
+          {
+            "display_name": "Uruguay",
+            "value": "URY"
+          },
+          {
+            "display_name": "Uzbekistan",
+            "value": "UZB"
+          },
+          {
+            "display_name": "Vanuatu",
+            "value": "VUT"
+          },
+          {
+            "display_name": "Venezuela, Bolivarian Republic of",
+            "value": "VEN"
+          },
+          {
+            "display_name": "Viet Nam",
+            "value": "VNM"
+          },
+          {
+            "display_name": "Virgin Islands, British",
+            "value": "VGB"
+          },
+          {
+            "display_name": "Virgin Islands, U.S.",
+            "value": "VIR"
+          },
+          {
+            "display_name": "Wallis and Futuna",
+            "value": "WLF"
+          },
+          {
+            "display_name": "Western Sahara",
+            "value": "ESH"
+          },
+          {
+            "display_name": "Yemen",
+            "value": "YEM"
+          },
+          {
+            "display_name": "Zambia",
+            "value": "ZMB"
+          },
+          {
+            "display_name": "Zimbabwe",
+            "value": "ZWE"
+          }
+        ]
+      },
+      "is_ucits_compliant": {
+        "type": "boolean",
+        "required": false,
+        "read_only": false,
+        "label": "Is ucits compliant"
+      },
+      "is_aifmd_compliant": {
+        "type": "boolean",
+        "required": false,
+        "read_only": false,
+        "label": "Is aifmd compliant"
+      },
+      "is_available_through_managed_account": {
+        "type": "boolean",
+        "required": false,
+        "read_only": false,
+        "label": "Is available through managed account"
+      },
+      "managed_account_minimum_investment_currency": {
+        "type": "string",
+        "required": false,
+        "read_only": true,
+        "label": "Managed account minimum investment currency"
+      },
+      "aum_time_series": {
+        "type": "field",
+        "required": false,
+        "read_only": false,
+        "label": "Aum time series"
+      },
+      "aum_series_currency": {
+        "type": "choice",
+        "required": false,
+        "read_only": false,
+        "label": "Aum series currency",
+        "choices": [
+          {
+            "display_name": "AED",
+            "value": "AED"
+          },
+          {
+            "display_name": "AFN",
+            "value": "AFN"
+          },
+          {
+            "display_name": "ALL",
+            "value": "ALL"
+          },
+          {
+            "display_name": "AMD",
+            "value": "AMD"
+          },
+          {
+            "display_name": "ANG",
+            "value": "ANG"
+          },
+          {
+            "display_name": "AOA",
+            "value": "AOA"
+          },
+          {
+            "display_name": "ARS",
+            "value": "ARS"
+          },
+          {
+            "display_name": "AUD",
+            "value": "AUD"
+          },
+          {
+            "display_name": "AWG",
+            "value": "AWG"
+          },
+          {
+            "display_name": "AZN",
+            "value": "AZN"
+          },
+          {
+            "display_name": "BAM",
+            "value": "BAM"
+          },
+          {
+            "display_name": "BBD",
+            "value": "BBD"
+          },
+          {
+            "display_name": "BDT",
+            "value": "BDT"
+          },
+          {
+            "display_name": "BGN",
+            "value": "BGN"
+          },
+          {
+            "display_name": "BHD",
+            "value": "BHD"
+          },
+          {
+            "display_name": "BIF",
+            "value": "BIF"
+          },
+          {
+            "display_name": "BMD",
+            "value": "BMD"
+          },
+          {
+            "display_name": "BND",
+            "value": "BND"
+          },
+          {
+            "display_name": "BRL",
+            "value": "BRL"
+          },
+          {
+            "display_name": "BSD",
+            "value": "BSD"
+          },
+          {
+            "display_name": "BTN",
+            "value": "BTN"
+          },
+          {
+            "display_name": "BWP",
+            "value": "BWP"
+          },
+          {
+            "display_name": "BYR",
+            "value": "BYR"
+          },
+          {
+            "display_name": "BZD",
+            "value": "BZD"
+          },
+          {
+            "display_name": "CAD",
+            "value": "CAD"
+          },
+          {
+            "display_name": "CDF",
+            "value": "CDF"
+          },
+          {
+            "display_name": "CHF",
+            "value": "CHF"
+          },
+          {
+            "display_name": "CLP",
+            "value": "CLP"
+          },
+          {
+            "display_name": "CNY",
+            "value": "CNY"
+          },
+          {
+            "display_name": "COP",
+            "value": "COP"
+          },
+          {
+            "display_name": "CRC",
+            "value": "CRC"
+          },
+          {
+            "display_name": "CUC",
+            "value": "CUC"
+          },
+          {
+            "display_name": "CUP",
+            "value": "CUP"
+          },
+          {
+            "display_name": "CVE",
+            "value": "CVE"
+          },
+          {
+            "display_name": "CZK",
+            "value": "CZK"
+          },
+          {
+            "display_name": "DJF",
+            "value": "DJF"
+          },
+          {
+            "display_name": "DKK",
+            "value": "DKK"
+          },
+          {
+            "display_name": "DOP",
+            "value": "DOP"
+          },
+          {
+            "display_name": "DZD",
+            "value": "DZD"
+          },
+          {
+            "display_name": "EGP",
+            "value": "EGP"
+          },
+          {
+            "display_name": "ERN",
+            "value": "ERN"
+          },
+          {
+            "display_name": "ETB",
+            "value": "ETB"
+          },
+          {
+            "display_name": "EUR",
+            "value": "EUR"
+          },
+          {
+            "display_name": "FJD",
+            "value": "FJD"
+          },
+          {
+            "display_name": "FKP",
+            "value": "FKP"
+          },
+          {
+            "display_name": "GBP",
+            "value": "GBP"
+          },
+          {
+            "display_name": "GEL",
+            "value": "GEL"
+          },
+          {
+            "display_name": "GHS",
+            "value": "GHS"
+          },
+          {
+            "display_name": "GIP",
+            "value": "GIP"
+          },
+          {
+            "display_name": "GMD",
+            "value": "GMD"
+          },
+          {
+            "display_name": "GNF",
+            "value": "GNF"
+          },
+          {
+            "display_name": "GTQ",
+            "value": "GTQ"
+          },
+          {
+            "display_name": "GYD",
+            "value": "GYD"
+          },
+          {
+            "display_name": "HKD",
+            "value": "HKD"
+          },
+          {
+            "display_name": "HNL",
+            "value": "HNL"
+          },
+          {
+            "display_name": "HRK",
+            "value": "HRK"
+          },
+          {
+            "display_name": "HTG",
+            "value": "HTG"
+          },
+          {
+            "display_name": "HUF",
+            "value": "HUF"
+          },
+          {
+            "display_name": "IDR",
+            "value": "IDR"
+          },
+          {
+            "display_name": "ILS",
+            "value": "ILS"
+          },
+          {
+            "display_name": "IMP",
+            "value": "IMP"
+          },
+          {
+            "display_name": "INR",
+            "value": "INR"
+          },
+          {
+            "display_name": "IQD",
+            "value": "IQD"
+          },
+          {
+            "display_name": "IRR",
+            "value": "IRR"
+          },
+          {
+            "display_name": "ISK",
+            "value": "ISK"
+          },
+          {
+            "display_name": "JMD",
+            "value": "JMD"
+          },
+          {
+            "display_name": "JOD",
+            "value": "JOD"
+          },
+          {
+            "display_name": "JPY",
+            "value": "JPY"
+          },
+          {
+            "display_name": "KES",
+            "value": "KES"
+          },
+          {
+            "display_name": "KGS",
+            "value": "KGS"
+          },
+          {
+            "display_name": "KHR",
+            "value": "KHR"
+          },
+          {
+            "display_name": "KMF",
+            "value": "KMF"
+          },
+          {
+            "display_name": "KPW",
+            "value": "KPW"
+          },
+          {
+            "display_name": "KRW",
+            "value": "KRW"
+          },
+          {
+            "display_name": "KWD",
+            "value": "KWD"
+          },
+          {
+            "display_name": "KYD",
+            "value": "KYD"
+          },
+          {
+            "display_name": "KZT",
+            "value": "KZT"
+          },
+          {
+            "display_name": "LAK",
+            "value": "LAK"
+          },
+          {
+            "display_name": "LBP",
+            "value": "LBP"
+          },
+          {
+            "display_name": "LKR",
+            "value": "LKR"
+          },
+          {
+            "display_name": "LRD",
+            "value": "LRD"
+          },
+          {
+            "display_name": "LSL",
+            "value": "LSL"
+          },
+          {
+            "display_name": "LTL",
+            "value": "LTL"
+          },
+          {
+            "display_name": "LVL",
+            "value": "LVL"
+          },
+          {
+            "display_name": "LYD",
+            "value": "LYD"
+          },
+          {
+            "display_name": "MAD",
+            "value": "MAD"
+          },
+          {
+            "display_name": "MDL",
+            "value": "MDL"
+          },
+          {
+            "display_name": "MGA",
+            "value": "MGA"
+          },
+          {
+            "display_name": "MKD",
+            "value": "MKD"
+          },
+          {
+            "display_name": "MMK",
+            "value": "MMK"
+          },
+          {
+            "display_name": "MNT",
+            "value": "MNT"
+          },
+          {
+            "display_name": "MOP",
+            "value": "MOP"
+          },
+          {
+            "display_name": "MRO",
+            "value": "MRO"
+          },
+          {
+            "display_name": "MUR",
+            "value": "MUR"
+          },
+          {
+            "display_name": "MVR",
+            "value": "MVR"
+          },
+          {
+            "display_name": "MWK",
+            "value": "MWK"
+          },
+          {
+            "display_name": "MXN",
+            "value": "MXN"
+          },
+          {
+            "display_name": "MYR",
+            "value": "MYR"
+          },
+          {
+            "display_name": "MZN",
+            "value": "MZN"
+          },
+          {
+            "display_name": "NAD",
+            "value": "NAD"
+          },
+          {
+            "display_name": "NGN",
+            "value": "NGN"
+          },
+          {
+            "display_name": "NIO",
+            "value": "NIO"
+          },
+          {
+            "display_name": "NOK",
+            "value": "NOK"
+          },
+          {
+            "display_name": "NPR",
+            "value": "NPR"
+          },
+          {
+            "display_name": "NZD",
+            "value": "NZD"
+          },
+          {
+            "display_name": "OMR",
+            "value": "OMR"
+          },
+          {
+            "display_name": "PEN",
+            "value": "PEN"
+          },
+          {
+            "display_name": "PGK",
+            "value": "PGK"
+          },
+          {
+            "display_name": "PHP",
+            "value": "PHP"
+          },
+          {
+            "display_name": "PKR",
+            "value": "PKR"
+          },
+          {
+            "display_name": "PLN",
+            "value": "PLN"
+          },
+          {
+            "display_name": "PYG",
+            "value": "PYG"
+          },
+          {
+            "display_name": "QAR",
+            "value": "QAR"
+          },
+          {
+            "display_name": "RON",
+            "value": "RON"
+          },
+          {
+            "display_name": "RSD",
+            "value": "RSD"
+          },
+          {
+            "display_name": "RUB",
+            "value": "RUB"
+          },
+          {
+            "display_name": "RWF",
+            "value": "RWF"
+          },
+          {
+            "display_name": "SAR",
+            "value": "SAR"
+          },
+          {
+            "display_name": "SBD",
+            "value": "SBD"
+          },
+          {
+            "display_name": "SCR",
+            "value": "SCR"
+          },
+          {
+            "display_name": "SDG",
+            "value": "SDG"
+          },
+          {
+            "display_name": "SEK",
+            "value": "SEK"
+          },
+          {
+            "display_name": "SGD",
+            "value": "SGD"
+          },
+          {
+            "display_name": "SHP",
+            "value": "SHP"
+          },
+          {
+            "display_name": "SLL",
+            "value": "SLL"
+          },
+          {
+            "display_name": "SOS",
+            "value": "SOS"
+          },
+          {
+            "display_name": "SRD",
+            "value": "SRD"
+          },
+          {
+            "display_name": "STD",
+            "value": "STD"
+          },
+          {
+            "display_name": "SYP",
+            "value": "SYP"
+          },
+          {
+            "display_name": "SZL",
+            "value": "SZL"
+          },
+          {
+            "display_name": "THB",
+            "value": "THB"
+          },
+          {
+            "display_name": "TJS",
+            "value": "TJS"
+          },
+          {
+            "display_name": "TMM",
+            "value": "TMM"
+          },
+          {
+            "display_name": "TND",
+            "value": "TND"
+          },
+          {
+            "display_name": "TOP",
+            "value": "TOP"
+          },
+          {
+            "display_name": "TRY",
+            "value": "TRY"
+          },
+          {
+            "display_name": "TTD",
+            "value": "TTD"
+          },
+          {
+            "display_name": "TVD",
+            "value": "TVD"
+          },
+          {
+            "display_name": "TWD",
+            "value": "TWD"
+          },
+          {
+            "display_name": "TZS",
+            "value": "TZS"
+          },
+          {
+            "display_name": "UAH",
+            "value": "UAH"
+          },
+          {
+            "display_name": "UGX",
+            "value": "UGX"
+          },
+          {
+            "display_name": "USD",
+            "value": "USD"
+          },
+          {
+            "display_name": "UYU",
+            "value": "UYU"
+          },
+          {
+            "display_name": "UZS",
+            "value": "UZS"
+          },
+          {
+            "display_name": "VEF",
+            "value": "VEF"
+          },
+          {
+            "display_name": "VND",
+            "value": "VND"
+          },
+          {
+            "display_name": "VUV",
+            "value": "VUV"
+          },
+          {
+            "display_name": "WST",
+            "value": "WST"
+          },
+          {
+            "display_name": "XAF",
+            "value": "XAF"
+          },
+          {
+            "display_name": "XAG",
+            "value": "XAG"
+          },
+          {
+            "display_name": "XAU",
+            "value": "XAU"
+          },
+          {
+            "display_name": "XBA",
+            "value": "XBA"
+          },
+          {
+            "display_name": "XBB",
+            "value": "XBB"
+          },
+          {
+            "display_name": "XBC",
+            "value": "XBC"
+          },
+          {
+            "display_name": "XBD",
+            "value": "XBD"
+          },
+          {
+            "display_name": "XCD",
+            "value": "XCD"
+          },
+          {
+            "display_name": "XDR",
+            "value": "XDR"
+          },
+          {
+            "display_name": "XFO",
+            "value": "XFO"
+          },
+          {
+            "display_name": "XFU",
+            "value": "XFU"
+          },
+          {
+            "display_name": "XOF",
+            "value": "XOF"
+          },
+          {
+            "display_name": "XPD",
+            "value": "XPD"
+          },
+          {
+            "display_name": "XPF",
+            "value": "XPF"
+          },
+          {
+            "display_name": "XPT",
+            "value": "XPT"
+          },
+          {
+            "display_name": "XTS",
+            "value": "XTS"
+          },
+          {
+            "display_name": "XYZ",
+            "value": "XYZ"
+          },
+          {
+            "display_name": "YER",
+            "value": "YER"
+          },
+          {
+            "display_name": "ZAR",
+            "value": "ZAR"
+          },
+          {
+            "display_name": "ZMK",
+            "value": "ZMK"
+          },
+          {
+            "display_name": "ZMW",
+            "value": "ZMW"
+          },
+          {
+            "display_name": "ZWD",
+            "value": "ZWD"
+          },
+          {
+            "display_name": "ZWL",
+            "value": "ZWL"
+          },
+          {
+            "display_name": "ZWN",
+            "value": "ZWN"
+          }
+        ]
+      },
+      "capacity_currency": {
+        "type": "string",
+        "required": false,
+        "read_only": true,
+        "label": "Capacity currency"
+      },
+      "nav_time_series": {
+        "type": "field",
+        "required": false,
+        "read_only": false,
+        "label": "Nav time series"
+      },
+      "nav_series_currency": {
+        "type": "choice",
+        "required": false,
+        "read_only": false,
+        "label": "Nav series currency",
+        "choices": [
+          {
+            "display_name": "AED",
+            "value": "AED"
+          },
+          {
+            "display_name": "AFN",
+            "value": "AFN"
+          },
+          {
+            "display_name": "ALL",
+            "value": "ALL"
+          },
+          {
+            "display_name": "AMD",
+            "value": "AMD"
+          },
+          {
+            "display_name": "ANG",
+            "value": "ANG"
+          },
+          {
+            "display_name": "AOA",
+            "value": "AOA"
+          },
+          {
+            "display_name": "ARS",
+            "value": "ARS"
+          },
+          {
+            "display_name": "AUD",
+            "value": "AUD"
+          },
+          {
+            "display_name": "AWG",
+            "value": "AWG"
+          },
+          {
+            "display_name": "AZN",
+            "value": "AZN"
+          },
+          {
+            "display_name": "BAM",
+            "value": "BAM"
+          },
+          {
+            "display_name": "BBD",
+            "value": "BBD"
+          },
+          {
+            "display_name": "BDT",
+            "value": "BDT"
+          },
+          {
+            "display_name": "BGN",
+            "value": "BGN"
+          },
+          {
+            "display_name": "BHD",
+            "value": "BHD"
+          },
+          {
+            "display_name": "BIF",
+            "value": "BIF"
+          },
+          {
+            "display_name": "BMD",
+            "value": "BMD"
+          },
+          {
+            "display_name": "BND",
+            "value": "BND"
+          },
+          {
+            "display_name": "BRL",
+            "value": "BRL"
+          },
+          {
+            "display_name": "BSD",
+            "value": "BSD"
+          },
+          {
+            "display_name": "BTN",
+            "value": "BTN"
+          },
+          {
+            "display_name": "BWP",
+            "value": "BWP"
+          },
+          {
+            "display_name": "BYR",
+            "value": "BYR"
+          },
+          {
+            "display_name": "BZD",
+            "value": "BZD"
+          },
+          {
+            "display_name": "CAD",
+            "value": "CAD"
+          },
+          {
+            "display_name": "CDF",
+            "value": "CDF"
+          },
+          {
+            "display_name": "CHF",
+            "value": "CHF"
+          },
+          {
+            "display_name": "CLP",
+            "value": "CLP"
+          },
+          {
+            "display_name": "CNY",
+            "value": "CNY"
+          },
+          {
+            "display_name": "COP",
+            "value": "COP"
+          },
+          {
+            "display_name": "CRC",
+            "value": "CRC"
+          },
+          {
+            "display_name": "CUC",
+            "value": "CUC"
+          },
+          {
+            "display_name": "CUP",
+            "value": "CUP"
+          },
+          {
+            "display_name": "CVE",
+            "value": "CVE"
+          },
+          {
+            "display_name": "CZK",
+            "value": "CZK"
+          },
+          {
+            "display_name": "DJF",
+            "value": "DJF"
+          },
+          {
+            "display_name": "DKK",
+            "value": "DKK"
+          },
+          {
+            "display_name": "DOP",
+            "value": "DOP"
+          },
+          {
+            "display_name": "DZD",
+            "value": "DZD"
+          },
+          {
+            "display_name": "EGP",
+            "value": "EGP"
+          },
+          {
+            "display_name": "ERN",
+            "value": "ERN"
+          },
+          {
+            "display_name": "ETB",
+            "value": "ETB"
+          },
+          {
+            "display_name": "EUR",
+            "value": "EUR"
+          },
+          {
+            "display_name": "FJD",
+            "value": "FJD"
+          },
+          {
+            "display_name": "FKP",
+            "value": "FKP"
+          },
+          {
+            "display_name": "GBP",
+            "value": "GBP"
+          },
+          {
+            "display_name": "GEL",
+            "value": "GEL"
+          },
+          {
+            "display_name": "GHS",
+            "value": "GHS"
+          },
+          {
+            "display_name": "GIP",
+            "value": "GIP"
+          },
+          {
+            "display_name": "GMD",
+            "value": "GMD"
+          },
+          {
+            "display_name": "GNF",
+            "value": "GNF"
+          },
+          {
+            "display_name": "GTQ",
+            "value": "GTQ"
+          },
+          {
+            "display_name": "GYD",
+            "value": "GYD"
+          },
+          {
+            "display_name": "HKD",
+            "value": "HKD"
+          },
+          {
+            "display_name": "HNL",
+            "value": "HNL"
+          },
+          {
+            "display_name": "HRK",
+            "value": "HRK"
+          },
+          {
+            "display_name": "HTG",
+            "value": "HTG"
+          },
+          {
+            "display_name": "HUF",
+            "value": "HUF"
+          },
+          {
+            "display_name": "IDR",
+            "value": "IDR"
+          },
+          {
+            "display_name": "ILS",
+            "value": "ILS"
+          },
+          {
+            "display_name": "IMP",
+            "value": "IMP"
+          },
+          {
+            "display_name": "INR",
+            "value": "INR"
+          },
+          {
+            "display_name": "IQD",
+            "value": "IQD"
+          },
+          {
+            "display_name": "IRR",
+            "value": "IRR"
+          },
+          {
+            "display_name": "ISK",
+            "value": "ISK"
+          },
+          {
+            "display_name": "JMD",
+            "value": "JMD"
+          },
+          {
+            "display_name": "JOD",
+            "value": "JOD"
+          },
+          {
+            "display_name": "JPY",
+            "value": "JPY"
+          },
+          {
+            "display_name": "KES",
+            "value": "KES"
+          },
+          {
+            "display_name": "KGS",
+            "value": "KGS"
+          },
+          {
+            "display_name": "KHR",
+            "value": "KHR"
+          },
+          {
+            "display_name": "KMF",
+            "value": "KMF"
+          },
+          {
+            "display_name": "KPW",
+            "value": "KPW"
+          },
+          {
+            "display_name": "KRW",
+            "value": "KRW"
+          },
+          {
+            "display_name": "KWD",
+            "value": "KWD"
+          },
+          {
+            "display_name": "KYD",
+            "value": "KYD"
+          },
+          {
+            "display_name": "KZT",
+            "value": "KZT"
+          },
+          {
+            "display_name": "LAK",
+            "value": "LAK"
+          },
+          {
+            "display_name": "LBP",
+            "value": "LBP"
+          },
+          {
+            "display_name": "LKR",
+            "value": "LKR"
+          },
+          {
+            "display_name": "LRD",
+            "value": "LRD"
+          },
+          {
+            "display_name": "LSL",
+            "value": "LSL"
+          },
+          {
+            "display_name": "LTL",
+            "value": "LTL"
+          },
+          {
+            "display_name": "LVL",
+            "value": "LVL"
+          },
+          {
+            "display_name": "LYD",
+            "value": "LYD"
+          },
+          {
+            "display_name": "MAD",
+            "value": "MAD"
+          },
+          {
+            "display_name": "MDL",
+            "value": "MDL"
+          },
+          {
+            "display_name": "MGA",
+            "value": "MGA"
+          },
+          {
+            "display_name": "MKD",
+            "value": "MKD"
+          },
+          {
+            "display_name": "MMK",
+            "value": "MMK"
+          },
+          {
+            "display_name": "MNT",
+            "value": "MNT"
+          },
+          {
+            "display_name": "MOP",
+            "value": "MOP"
+          },
+          {
+            "display_name": "MRO",
+            "value": "MRO"
+          },
+          {
+            "display_name": "MUR",
+            "value": "MUR"
+          },
+          {
+            "display_name": "MVR",
+            "value": "MVR"
+          },
+          {
+            "display_name": "MWK",
+            "value": "MWK"
+          },
+          {
+            "display_name": "MXN",
+            "value": "MXN"
+          },
+          {
+            "display_name": "MYR",
+            "value": "MYR"
+          },
+          {
+            "display_name": "MZN",
+            "value": "MZN"
+          },
+          {
+            "display_name": "NAD",
+            "value": "NAD"
+          },
+          {
+            "display_name": "NGN",
+            "value": "NGN"
+          },
+          {
+            "display_name": "NIO",
+            "value": "NIO"
+          },
+          {
+            "display_name": "NOK",
+            "value": "NOK"
+          },
+          {
+            "display_name": "NPR",
+            "value": "NPR"
+          },
+          {
+            "display_name": "NZD",
+            "value": "NZD"
+          },
+          {
+            "display_name": "OMR",
+            "value": "OMR"
+          },
+          {
+            "display_name": "PEN",
+            "value": "PEN"
+          },
+          {
+            "display_name": "PGK",
+            "value": "PGK"
+          },
+          {
+            "display_name": "PHP",
+            "value": "PHP"
+          },
+          {
+            "display_name": "PKR",
+            "value": "PKR"
+          },
+          {
+            "display_name": "PLN",
+            "value": "PLN"
+          },
+          {
+            "display_name": "PYG",
+            "value": "PYG"
+          },
+          {
+            "display_name": "QAR",
+            "value": "QAR"
+          },
+          {
+            "display_name": "RON",
+            "value": "RON"
+          },
+          {
+            "display_name": "RSD",
+            "value": "RSD"
+          },
+          {
+            "display_name": "RUB",
+            "value": "RUB"
+          },
+          {
+            "display_name": "RWF",
+            "value": "RWF"
+          },
+          {
+            "display_name": "SAR",
+            "value": "SAR"
+          },
+          {
+            "display_name": "SBD",
+            "value": "SBD"
+          },
+          {
+            "display_name": "SCR",
+            "value": "SCR"
+          },
+          {
+            "display_name": "SDG",
+            "value": "SDG"
+          },
+          {
+            "display_name": "SEK",
+            "value": "SEK"
+          },
+          {
+            "display_name": "SGD",
+            "value": "SGD"
+          },
+          {
+            "display_name": "SHP",
+            "value": "SHP"
+          },
+          {
+            "display_name": "SLL",
+            "value": "SLL"
+          },
+          {
+            "display_name": "SOS",
+            "value": "SOS"
+          },
+          {
+            "display_name": "SRD",
+            "value": "SRD"
+          },
+          {
+            "display_name": "STD",
+            "value": "STD"
+          },
+          {
+            "display_name": "SYP",
+            "value": "SYP"
+          },
+          {
+            "display_name": "SZL",
+            "value": "SZL"
+          },
+          {
+            "display_name": "THB",
+            "value": "THB"
+          },
+          {
+            "display_name": "TJS",
+            "value": "TJS"
+          },
+          {
+            "display_name": "TMM",
+            "value": "TMM"
+          },
+          {
+            "display_name": "TND",
+            "value": "TND"
+          },
+          {
+            "display_name": "TOP",
+            "value": "TOP"
+          },
+          {
+            "display_name": "TRY",
+            "value": "TRY"
+          },
+          {
+            "display_name": "TTD",
+            "value": "TTD"
+          },
+          {
+            "display_name": "TVD",
+            "value": "TVD"
+          },
+          {
+            "display_name": "TWD",
+            "value": "TWD"
+          },
+          {
+            "display_name": "TZS",
+            "value": "TZS"
+          },
+          {
+            "display_name": "UAH",
+            "value": "UAH"
+          },
+          {
+            "display_name": "UGX",
+            "value": "UGX"
+          },
+          {
+            "display_name": "USD",
+            "value": "USD"
+          },
+          {
+            "display_name": "UYU",
+            "value": "UYU"
+          },
+          {
+            "display_name": "UZS",
+            "value": "UZS"
+          },
+          {
+            "display_name": "VEF",
+            "value": "VEF"
+          },
+          {
+            "display_name": "VND",
+            "value": "VND"
+          },
+          {
+            "display_name": "VUV",
+            "value": "VUV"
+          },
+          {
+            "display_name": "WST",
+            "value": "WST"
+          },
+          {
+            "display_name": "XAF",
+            "value": "XAF"
+          },
+          {
+            "display_name": "XAG",
+            "value": "XAG"
+          },
+          {
+            "display_name": "XAU",
+            "value": "XAU"
+          },
+          {
+            "display_name": "XBA",
+            "value": "XBA"
+          },
+          {
+            "display_name": "XBB",
+            "value": "XBB"
+          },
+          {
+            "display_name": "XBC",
+            "value": "XBC"
+          },
+          {
+            "display_name": "XBD",
+            "value": "XBD"
+          },
+          {
+            "display_name": "XCD",
+            "value": "XCD"
+          },
+          {
+            "display_name": "XDR",
+            "value": "XDR"
+          },
+          {
+            "display_name": "XFO",
+            "value": "XFO"
+          },
+          {
+            "display_name": "XFU",
+            "value": "XFU"
+          },
+          {
+            "display_name": "XOF",
+            "value": "XOF"
+          },
+          {
+            "display_name": "XPD",
+            "value": "XPD"
+          },
+          {
+            "display_name": "XPF",
+            "value": "XPF"
+          },
+          {
+            "display_name": "XPT",
+            "value": "XPT"
+          },
+          {
+            "display_name": "XTS",
+            "value": "XTS"
+          },
+          {
+            "display_name": "XYZ",
+            "value": "XYZ"
+          },
+          {
+            "display_name": "YER",
+            "value": "YER"
+          },
+          {
+            "display_name": "ZAR",
+            "value": "ZAR"
+          },
+          {
+            "display_name": "ZMK",
+            "value": "ZMK"
+          },
+          {
+            "display_name": "ZMW",
+            "value": "ZMW"
+          },
+          {
+            "display_name": "ZWD",
+            "value": "ZWD"
+          },
+          {
+            "display_name": "ZWL",
+            "value": "ZWL"
+          },
+          {
+            "display_name": "ZWN",
+            "value": "ZWN"
+          }
+        ]
+      },
+      "long_exposure": {
+        "type": "decimal",
+        "required": false,
+        "read_only": false,
+        "label": "Long exposure"
+      },
+      "short_exposure": {
+        "type": "decimal",
+        "required": false,
+        "read_only": false,
+        "label": "Short exposure"
+      },
+      "net_exposure": {
+        "type": "decimal",
+        "required": false,
+        "read_only": false,
+        "label": "Net exposure"
+      },
+      "gross_exposure": {
+        "type": "decimal",
+        "required": false,
+        "read_only": false,
+        "label": "Gross exposure"
+      },
+      "is_leveraged": {
+        "type": "boolean",
+        "required": false,
+        "read_only": false,
+        "label": "Is leveraged"
+      },
+      "category_benchmark_index": {
+        "type": "field",
+        "required": false,
+        "read_only": false,
+        "label": "Category benchmark index",
+        "choices": []
+      },
+      "asset_class_benchmark_index": {
+        "type": "field",
+        "required": false,
+        "read_only": false,
+        "label": "Asset class benchmark index",
+        "choices": []
+      },
+      "management_company": {
+        "type": "field",
+        "required": false,
+        "read_only": false,
+        "label": "Management company",
+        "choices": []
+      },
+      "prospectus_benchmark_index": {
+        "type": "field",
+        "required": false,
+        "read_only": false,
+        "label": "Prospectus benchmark index",
+        "choices": []
+      },
+      "risk_free_index": {
+        "type": "field",
+        "required": false,
+        "read_only": false,
+        "label": "Risk free index",
+        "choices": []
+      },
+      "service_providers": {
+        "type": "field",
+        "required": false,
+        "read_only": false,
+        "label": "Service providers",
+        "choices": []
+      },
+      "managers": {
+        "type": "field",
+        "required": false,
+        "read_only": false,
+        "label": "Managers",
+        "choices": []
+      }
+    }
+  }
+}
