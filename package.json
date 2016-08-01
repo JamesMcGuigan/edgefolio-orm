@@ -42,6 +42,6 @@
   "scripts": {
     "install": "npm install; bower install;",
     "test": "karma start tests/karma.conf.js  --single-run",
-    "build": "./build.sh"
+    "bundle": "./bundle.sh"
   }
 }
