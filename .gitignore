@@ -39,3 +39,4 @@ typings/
 /src/.project
 /src/.pydevproject
 tests/json/unused/
+dist/

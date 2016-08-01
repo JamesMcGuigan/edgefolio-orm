@@ -1,6 +1,4 @@
 {
-  "conf": [
-  ],
   "libs": [
     "libs/bower_components/lodash/lodash.js",
     "libs/bower_components/jquery/dist/jquery.js",
@@ -57,13 +55,5 @@
     "src/models/timeseries/mapped/DateBucketMapped.js",
     "src/models/timeseries/mapped/DateBucketValue.js",
     "src/models/timeseries/mapped/TimeSeriesValue.js"
-  ],
-  "init": [],
-  "css": [
-  ],
-  "images": [
-  ],
-  "templates": [],
-  "html": [
   ]
 }

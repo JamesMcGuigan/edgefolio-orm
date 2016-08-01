@@ -36,12 +36,12 @@
     "mocha": "^3.0.0",
     "requirejs": "^2.2.0",
     "simple-statistics": "^2.1.0",
+    "uglify-js": "^2.7.0",
     "watchify": "^3.7.0"
   },
   "scripts": {
-    "production": "gulp production",
-    "test": "npm run test:unit",
-    "test:unit": "karma start tests/karma.conf.js",
-    "test:unit:once": "karma start tests/karma.conf.js  --single-run"
+    "install": "npm install; bower install;",
+    "test": "karma start tests/karma.conf.js  --single-run",
+    "build": "./build.sh"
   }
 }
