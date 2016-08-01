@@ -167,7 +167,7 @@ function getKarmaConfig() {
       'node_modules/**/*.spec.js',
       //'src/manager_app/angular/routes/**.js', // MA Routing requires preconfiguring many API routes
       //'src/investor_app/angular/routes/**.js', // MA Routing requires preconfiguring many API routes
-      //'src/common_components/angular/decorators/ui-router-state-decorator.js',
+      //'src/decorators/ui-router-state-decorator.js',
       //'src/manager_app/angular/config/routes/account-setup-redirects.js',
       //'src/manager_app/angular-archive/**/*.spec.js',
       '**/*.bak/**/*',
@@ -229,7 +229,7 @@ function getKarmaConfig() {
       //'src/manager_app/**/*.js':       ['coverage'],
       'src/investor_app/**/*.js':      ['coverage'],
       'src/common_components/**/*.js': ['coverage'],
-      'src/enterprise/**/*.js':        ['coverage']
+      'src/**/*.js':        ['coverage']
     },
 
     reporters: ['growl', 'mocha'], // ['dots', 'coverage', 'teamcity'], available reporters: https://npmjs.org/browse/keyword/karma-reporter

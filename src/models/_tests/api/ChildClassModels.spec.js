@@ -4,7 +4,7 @@ describe('Models: ApiBaseClass: Child Classes', function() {
   var $q, $injector, $rootScope, $httpBackend;
   var api_v3;
 
-  // COPY/PASTE from src/enterprise/models/util/Edgefolio.js - dynamic injection doesn't work outside of it() functions
+  // COPY/PASTE from src/models/util/Edgefolio.js - dynamic injection doesn't work outside of it() functions
   var classNames = [
     "ApiCache", "ApiFieldGenerator", "CallbackPromise", // not ApiBaseClass instances
 
