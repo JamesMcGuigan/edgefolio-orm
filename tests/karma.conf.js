@@ -142,6 +142,7 @@ function getKarmaConfig() {
     .concat('libs/bower_components/karma-read-json/karma-read-json.js')
     .concat({ pattern: 'tests/**/*.json', included: false }) // needed to get readJSON to work
     .concat('tests/unit-preload/**/*.js')
+    .concat('tests/**/*.spec.js')
     .concat('src/**/*.spec.js')
     .value();
 
