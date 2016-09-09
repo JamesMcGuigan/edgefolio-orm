@@ -4,6 +4,7 @@ A fully recursive, promised and lazy loading json object,
 representing a multi-endpoint REST API with foreign key support,
 with timeseries financial calculations and extensive unit tests. 
 
+**[tests/models/api/ApiClassLoading.spec.js](tests/models/api/ApiClassLoading.spec.js)**
 ```
 it("should be possible to fully recurse through data model", function(done) {
   $q.all([
