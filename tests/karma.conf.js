@@ -121,20 +121,18 @@ function getKarmaConfig() {
   var includesFiles;
   if( _(process.argv).contains('--production') ) {
     includesFiles = [
-      _(includesJSON).keys().map(function(appName) { return 'src/production/edgefolio-'+appName+'-js-libs.min.js' }).value(),
-      _(includesJSON).keys().map(function(appName) { return 'src/production/edgefolio-'+appName+'-js-code.min.js' }).value()
+      _(includesJSON).keys().map(function(filekey) { return 'dist/'+filekey+'.min.js' }).value()
     ];
   } else if( _(process.argv).contains('--staging') ) {
     includesFiles = [
-      _(includesJSON).keys().map(function(appName) { return 'src/production/edgefolio-'+appName+'-js-libs.js' }).value(),
-      _(includesJSON).keys().map(function(appName) { return 'src/production/edgefolio-'+appName+'-js-code.js' }).value()
+      _(includesJSON).keys().map(function(filekey) { return 'dist/'+filekey+'.js' }).value()
     ];
   } else {
     includesFiles = [
-      _(includesJSON).values().pluck("libs").value(),
-      _(includesJSON).values().pluck("code").value()
+      _(includesJSON).map(_.values,  _).flatten(true).value()
     ];
   }
+
   includesFiles = _([])
     .concat(includesFiles)
     .flatten(true)

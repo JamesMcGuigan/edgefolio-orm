@@ -1,19 +1,21 @@
 {
-  "libs": [
+  "edgefolio-models-libs-common": [
     "libs/bower_components/lodash/lodash.js",
     "libs/bower_components/jquery/dist/jquery.js",
     "libs/bower_components/d3/d3.js",
     "libs/bower_components/moment/moment.js",
     "libs/bower_components/moment-timezone/builds/moment-timezone-with-data.js",
     "libs/bower_components/moment/locale/en-gb.js",
-    "libs/bower_components/angular/angular.js",
+    "libs/bower_components/angular/angular.js"
+  ],
+  "edgefolio-models-libs-core": [
     "libs/bower_components/array-generics/array.generics.js",
     "libs/browserify/compute-covariance.js",
     "libs/browserify/compute-kurtosis.js",
     "libs/vendor/simple-statistics/simple-statistics.js",
     "libs/vendor/jsclass/jsclass-all.js"
   ],
-  "code": [
+  "edgefolio-models": [
     "src/_global/array_simplestatistics.js",
     "src/_global/moment_toString.js",
     "src/models/_models.module.js",
