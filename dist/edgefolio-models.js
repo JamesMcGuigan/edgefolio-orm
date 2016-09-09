@@ -2598,7 +2598,7 @@ angular.module('edgefolio.models').factory('UnenumerablePrototype', function(Api
 
 /**
  * @broken
- * src/models/_tests/util/UnenumerableApiBaseClass.spec.broken.js
+ * tests/models/util/UnenumerableApiBaseClass.spec.broken.js
  * it("UnenumerablePrototype", function() {
  *    var instance = UnenumerableApiBaseClass.load();
  *   expect(_.keys(instance)).to.deep.equal([]);

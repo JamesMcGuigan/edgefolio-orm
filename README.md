@@ -77,7 +77,7 @@ Each ApiBaseClass instance represents a single API endpoint, with lazy-load reso
 
 Edgefolio.Fund is one endpoint specific implementation of ApiBaseClass
 
-[src/enterprise/models/api/Fund.js](src/enterprise/models/api/Fund.js)
+[src/models/api/Fund.js](src/models/api/Fund.js)
 ```
 angular.module('edgefolio.models').factory('Fund', function($q, ApiBaseClass, CountryCodes, LegalStructures, TimeSeries, Index, CurrencySymbolMap) {
  var Fund = new JS.Class('Fund', ApiBaseClass, {
@@ -108,7 +108,7 @@ $q.all([ Edgefolio.Fund.load(123).$loadPromise ]).then(function() {   // (5)
 2. ```Fund.load()``` is a class method that calls ```new Fund()``` internally and has nicer syntax
 3. ```$loadPromise``` resolves once the asynchronous ajax request to ```/api/funds/123/``` has returned (or if the object was previously cached)
 4. ```$preloadPromise``` resolves once data for all foreign keys (one level deep) has been asynchronous requested (eg management_company, share_classes, service_providers and managers)
-5. ```$q.all()``` is compatible with ```$loadPromise```/```$preloadPromise``` ([CallbackPromise.js](src/enterprise/models/util/CallbackPromise.js)) and can be used queue multiple asynchronous promises
+5. ```$q.all()``` is compatible with ```$loadPromise```/```$preloadPromise``` ([CallbackPromise.js](src/models/util/CallbackPromise.js)) and can be used queue multiple asynchronous promises
 
 
 ApiBaseClass objects implement the id singleton pattern. The first call to ```new Fund(123)```,
@@ -126,7 +126,7 @@ asynchronous ajax request in the background that will update the object upon its
 
 The constructor for ApiBaseClass can additionally take a config object:
 
-**[src/enterprise/models/api/ApiBaseClass.js](src/enterprise/models/api/ApiBaseClass.js)**
+**[src/models/api/ApiBaseClass.js](src/models/api/ApiBaseClass.js)**
 ```
 /**
  *  Loads a new instance, either fetched from cache or newly created and added to cache
@@ -157,7 +157,7 @@ and is the implementation for ```ApiBaseClass.load().$loadPromise``` and ```ApiB
 executes asynchronously in a new ```setTimeout()``` javascript thread. 
 
 
-**[src/enterprise/models/util/CallbackPromise.js](src/enterprise/models/util/CallbackPromise.js)**
+**[src/models/util/CallbackPromise.js](src/models/util/CallbackPromise.js)**
 ```
 /**
  *  This a decorator around $q.defer() that looks and acts like a $q promise
@@ -223,7 +223,7 @@ Edgefolio.Fund.load(123) = {
 
 
 
-**[src/enterprise/models/api/ApiBaseClass.js](src/enterprise/models/api/ApiBaseClass.js)**
+**[src/models/api/ApiBaseClass.js](src/models/api/ApiBaseClass.js)**
 ```
 var ApiBaseClass = new JS.Class("ApiBaseClass", {
   uuid:         null,   // {String} 'Fund:1'   input to ApiBaseClass.loadUuid()
@@ -261,7 +261,7 @@ Full initialization code flow:
 -> ```fund.$loadPromise.resolve(fund)``` -> ```fund.$loadPromise.then(function(fund) {})```
 
 
-**[src/enterprise/models/api/ApiBaseClass.js](src/enterprise/models/api/ApiBaseClass.js)**
+**[src/models/api/ApiBaseClass.js](src/models/api/ApiBaseClass.js)**
 ```
 $setData: function(data) {
   if( !_.isObject(this.$data) ) {
@@ -284,7 +284,7 @@ $initializeObjectProperties: function() {
 },
 ```
 
-**[src/enterprise/models/util/ApiFieldGenerator.js](src/enterprise/models/util/ApiFieldGenerator.js)**
+**[src/models/util/ApiFieldGenerator.js](src/models/util/ApiFieldGenerator.js)**
 ```
 /**
  *  Maps: instance[field] -> instance.$data[field]
@@ -308,7 +308,7 @@ $initializeObjectProperties: function() {
   }, { generator: 'static', priority: false })
 }
 ```
-**[src/enterprise/models/api/Fund.js](src/enterprise/models/api/Fund.js)**
+**[src/models/api/Fund.js](src/models/api/Fund.js)**
 ```
 $initializeObjectProperties: function(data) {
   this.callSuper.apply(this, arguments);
@@ -372,7 +372,7 @@ The JSON API can define each foreign key as either a numeric id or the complete 
 }
 ```
 
-**[src/enterprise/models/util/ApiFieldGenerator.js](src/enterprise/models/util/ApiFieldGenerator.js)**
+**[src/models/util/ApiFieldGenerator.js](src/models/util/ApiFieldGenerator.js)**
 ```
 /**
  * Creates a single valued lazy load field
@@ -399,7 +399,7 @@ lazyLoadId: function(instance, field, klass) {}
 lazyLoadIdArray: function(instance, field, klass) {}
 ```
 
-**[src/enterprise/models/api/Fund.js](src/enterprise/models/api/Fund.js)**
+**[src/models/api/Fund.js](src/models/api/Fund.js)**
 ```
 $initializeObjectProperties: function(data) {
     this.callSuper.apply(this, arguments);
@@ -414,7 +414,7 @@ As a usage example, it is possible to start at any data point in the API, then r
 foreign key relationships and arrive back at the original ApiBaseClass object, which shares 
 object identity (in javascript memory) with the beginning of the chain.  
 
-**[src/enterprise/models/_tests/api/ApiClassLoading.spec.js](src/enterprise/models/_tests/api/ApiClassLoading.spec.js)**
+**[tests/models/api/ApiClassLoading.spec.js](tests/models/api/ApiClassLoading.spec.js)**
 ```
 it("should be possible to fully recurse through data model", function(done) {
   $q.all([
@@ -470,7 +470,7 @@ getHedgeFundsForWatchlist: function(queryParams, cacheOptions) {
 
 Benchmarks is an instance of ApiCollection. 
 
-**[src/enterprise/models/collections/Benchmarks.js](src/enterprise/models/collections/Benchmarks.js)**
+**[src/models/collections/Benchmarks.js](src/models/collections/Benchmarks.js)**
 ```
 /**
  * Benchmarks are currently implemented as the full set of available indexes
@@ -516,14 +516,14 @@ Edgefolio.Benchmarks.load() = {
 This variable is the most efficient to use with ```$scope.$watch``` 
 
 
-**[src/enterprise/models/api/ApiBaseClass.js](src/enterprise/models/api/ApiBaseClass.js)**
+**[src/models/api/ApiBaseClass.js](src/models/api/ApiBaseClass.js)**
 ```
 $setData: function(data) {
   this.$$hashKey = [this.klass.displayName, this.id, this.$dataVersion].join(':'); // 'Fund:1:0'
 }
 ``` 
 
-**[src/enterprise/widgets/selectbox/selectbox.js](src/enterprise/widgets/selectbox/selectbox.js)**
+**[src/widgets/selectbox/selectbox.js](src/widgets/selectbox/selectbox.js)**
 ```
 $scope.$watch(function() { return Edgefolio.Benchmarks.load().$$hashKey }, function() {
   Benchmarks.load().$preloadPromise.then(function(benchmarks) {
@@ -567,7 +567,7 @@ Strips null heads and tails from both ends of timestamp_indexed_object
 DateBucket extends UnenumerablePrototype, thus ```for(key in date_bucket)``` and ```_.keys(date_bucket)``` will only
 return the timestamp keys and not any of the DateBucket/TimeSeries instance methods on the prototype chain.
 
-**[src/enterprise/models/_tests/timeseries/DateBucket.spec.js](src/enterprise/models/_tests/timeseries/DateBucket.spec.js)**
+**[tests/models/timeseries/DateBucket.spec.js](tests/models/timeseries/DateBucket.spec.js)**
 ```
 it("for key in DateBucket", function(done) {
  var keys = [];
@@ -690,7 +690,7 @@ angular.module('edgefolio.models').factory('DateBucket', function(
 
 #### TimeSeries
 
-**[src/enterprise/models/timeseries/TimeSeries.js](src/enterprise/models/timeseries/TimeSeries.js)**
+**[src/models/timeseries/TimeSeries.js](src/models/timeseries/TimeSeries.js)**
 ```
 /**
  * Class based reimpleme ntation of /api/src/compute/measures/tasks.py
@@ -772,7 +772,7 @@ This is unused (but tested) code permitting DateBucket to be used with object va
 
 ApiFieldGenerator contains a function generators that allow for consise specification of ApiBaseClass data mappings
 
-**[src/enterprise/models/util/ApiFieldGenerator.js](src/enterprise/models/util/ApiFieldGenerator.js)**
+**[src/models/util/ApiFieldGenerator.js](src/models/util/ApiFieldGenerator.js)**
 ```
 /**
  *  Generator for Object.defineProperty()
@@ -842,7 +842,7 @@ jsbuild --manifest build/src/loader-browser.js -r build/src/ \
 
 # Includes
 
-**[src/enterprise/models/util/Edgefolio.js](src/enterprise/models/util/Edgefolio.js)**
+**[src/models/util/Edgefolio.js](src/models/util/Edgefolio.js)**
 ```
 /**
  *  Convenience namespace for accessing model framework from console, or angular view templates
@@ -874,7 +874,7 @@ angular.module('edgefolio.models').run(function($injector, $rootScope, $window, 
 ```
 
 
-**[src/enterprise/models/_models.module.js](src/enterprise/models/_models.module.js)**
+**[src/models/_models.module.js](src/models/_models.module.js)**
 ```
 angular.module('edgefolio.models', [
   'edgefolio.constants'
@@ -892,7 +892,7 @@ angular.module('edgefolio.models').value('covariance', require("compute-covarian
 // - src/common_components/global/array_simplestatistics.js:  array.prototype += ss.prototype[arrayFunctions]
 ```
 
-**[src/enterprise/models/_models.includes.conf](src/enterprise/models/_models.includes.conf)**
+**[src/models/_models.includes.conf](src/models/_models.includes.conf)**
 ```
 src/production/browserify/compute-covariance.js
 src/production/browserify/compute-kurtosis.js
@@ -912,28 +912,28 @@ src/_global/moment_toString.js         # Date.toString = Date.toISOString | 2008
 
 src/common_components/angular/constants/_constants.includes.conf
 
-src/enterprise/models/_models.module.js
-src/enterprise/models/mixins/EventModule.js
-src/enterprise/models/util/CallbackPromise.js
-src/enterprise/models/util/ApiFieldGenerator.js
-src/enterprise/models/util/ApiCache.js
-src/enterprise/models/util/Edgefolio.js
-src/enterprise/models/util/UnenumerablePrototype.js
-src/enterprise/models/api/ApiBaseClass.js
-src/enterprise/models/api/Fund.js
-src/enterprise/models/api/Index.js
-src/enterprise/models/api/Person.js
-src/enterprise/models/api/ShareClass.js
-src/enterprise/models/api/User.js
-src/enterprise/models/api/Company.js
-src/enterprise/models/collections/ApiCollection.js
-src/enterprise/models/collections/Benchmarks.js
-src/enterprise/models/collections/FundGroups.js
-src/enterprise/models/timeseries/DateBucket.js
-src/enterprise/models/timeseries/TimeSeries.js
-src/enterprise/models/timeseries/mapped/DateBucketMapped.js
-src/enterprise/models/timeseries/mapped/DateBucketValue.js
-src/enterprise/models/timeseries/mapped/TimeSeriesValue.js
+src/models/_models.module.js
+src/models/mixins/EventModule.js
+src/models/util/CallbackPromise.js
+src/models/util/ApiFieldGenerator.js
+src/models/util/ApiCache.js
+src/models/util/Edgefolio.js
+src/models/util/UnenumerablePrototype.js
+src/models/api/ApiBaseClass.js
+src/models/api/Fund.js
+src/models/api/Index.js
+src/models/api/Person.js
+src/models/api/ShareClass.js
+src/models/api/User.js
+src/models/api/Company.js
+src/models/collections/ApiCollection.js
+src/models/collections/Benchmarks.js
+src/models/collections/FundGroups.js
+src/models/timeseries/DateBucket.js
+src/models/timeseries/TimeSeries.js
+src/models/timeseries/mapped/DateBucketMapped.js
+src/models/timeseries/mapped/DateBucketValue.js
+src/models/timeseries/mapped/TimeSeriesValue.js
 ```
 
 **[gulp/config.js](gulp/config.js)**
@@ -973,7 +973,7 @@ SUMMARY:
 ✔ 360 tests completed
 ```
 
-**[src/enterprise/models/_tests/](src/enterprise/models/_tests/)**
+**[tests/models/](tests/models/)**
 ```
 ├── api
 │   ├── ApiBaseClass.klass.spec.js
